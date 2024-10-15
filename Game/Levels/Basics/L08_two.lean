@@ -29,6 +29,15 @@ Statement: (1: ℕ ) + 1 = 2 := by
 
 Conclusion
 "
+Here's another proof of $1 + 1 = 2$ that uses less lines:
+```lean
+nth_rewrite 2 [one_eq_succ_zero] -- Changes only the second one
+rw [add_succ]
+rw [add_zero]
+rw [← two_eq_succ_one] -- change `succ 1` to `2`
+rfl
+```
+
 Optional extra: you can run this proof yourself. Switch the game into \"Editor mode\" by clicking
 on the `</>` button in the top right. You can now see your proof
 written as several lines of code. Move your cursor between lines to see
