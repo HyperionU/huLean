@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Tue Oct 15 21:13:05 2024\n"
+"POT-Creation-Date: Tue Oct 15 22:52:36 2024\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -624,6 +624,276 @@ msgstr ""
 msgid "This introduction is shown before one enters level 1 of the demo world. Use markdown."
 msgstr ""
 
+#: Game.Levels.Addition.L01_intro
+msgid "zero_add"
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "In this level we're going to prove that $0+n=n$, where $n$ is a secret natural number.\n"
+"\n"
+"Wait, don't we already know that? No! We know that $n+0=n$, but that's `add_zero`.\n"
+"This is `zero_add`, which is different.\n"
+"\n"
+"The difficulty with proving `0 + n = n` is that we do not have a *formula* for\n"
+"`0 + n` in general, we can only use `add_zero` and `add_succ` once\n"
+"we know whether `n` is `0` or a successor. The `induction` tactic splits into these two cases.\n"
+"\n"
+"The base case will require us to prove `0 + 0 = 0`, and the inductive step\n"
+"will ask us to show that if `0 + d = d` then `0 + succ d = succ d`. Because\n"
+"`0` and successor are the only way to make numbers, this will cover all the cases.\n"
+"\n"
+"See if you can do your first induction proof in Lean.\n"
+"\n"
+"(By the way, if you are still in the \"Editor mode\" from the last world, you can swap\n"
+"back to \"Typewriter mode\" by clicking the `>_` button in the top right.)"
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "`zero_add x` is the proof of `0 + x = x`.\n"
+"\n"
+"`zero_add` is a `simp` lemma, because replacing `0 + x` by `x`\n"
+"is almost always what you want to do if you're simplifying an expression."
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "For all natural numbers $n$, we have $0 + n = n$."
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "You can start a proof by induction on `n` by typing:\n"
+"`induction n with d hd`."
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "Now you have two goals. Once you proved the first, you will jump to the second one.\n"
+"This first goal is the base case $n = 0$.\n"
+"\n"
+"Recall that you can rewrite the proof of any lemma which is visible\n"
+"in your inventory, or of any assumption displayed above the goal,\n"
+"as long as it is of the form `X = Y`."
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "try rewriting `add_zero`."
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "Now for to the second goal. Here you have the induction hypothesis\n"
+"`«{hd}» : 0 + «{d}» = «{d}»`, and you need to prove that `0 + succ «{d}» = succ «{d}»`."
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "Use `add_succ`."
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "At this point you see the term `0 + «{d}»`, so you can use the\n"
+"induction hypothesis with `rw [«{hd}»]`."
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "## Summary\n"
+"\n"
+"If `n : ℕ` is an object, and the goal mentions `n`, then `induction n with d hd`\n"
+"attempts to prove the goal by induction on `n`, with the inductive\n"
+"variable in the successor case being `d`, and the inductive hypothesis being `hd`.\n"
+"\n"
+"### Example:\n"
+"If the goal is\n"
+"```\n"
+"0 + n = n\n"
+"```\n"
+"\n"
+"then\n"
+"\n"
+"`induction n with d hd`\n"
+"\n"
+"will turn it into two goals. The first is `0 + 0 = 0`;\n"
+"the second has an assumption `hd : 0 + d = d` and goal\n"
+"`0 + succ d = succ d`.\n"
+"\n"
+"Note that you must prove the first\n"
+"goal before you can access the second one."
+msgstr ""
+
+#: Game.Levels.Addition.L01_intro
+msgid "This lemma would have been easy if we had known that `x + y = y + x`. That theorem\n"
+"  is called `add_comm` and it is *true*, but unfortunately its proof *uses* both\n"
+"  `add_zero` and `zero_add`!\n"
+"\n"
+"  Let's continue on our journey to `add_comm`, the proof of `x + y = y + x`."
+msgstr ""
+
+#: Game.Levels.Addition.L02_succadd
+msgid "succ_add"
+msgstr ""
+
+#: Game.Levels.Addition.L02_succadd
+msgid "Oh no! On the way to `add_comm`, a wild `succ_add` appears. `succ_add a b`\n"
+"is the proof that `(succ a) + b = succ (a + b)` for `a` and `b` numbers.\n"
+"This result is what's standing in the way of `x + y = y + x`. Again\n"
+"we have the problem that we are adding `b` to things, so we need\n"
+"to use induction to split into the cases where `b = 0` and `b` is a successor."
+msgstr ""
+
+#: Game.Levels.Addition.L02_succadd
+msgid "`succ_add a b` is a proof that `succ a + b = succ (a + b)`."
+msgstr ""
+
+#: Game.Levels.Addition.L02_succadd
+msgid "For all natural numbers $a, b$, we have\n"
+"$ \\operatorname{succ}(a) + b = \\operatorname{succ}(a + b)$."
+msgstr ""
+
+#: Game.Levels.Addition.L02_succadd
+msgid "You might want to think about whether induction\n"
+"on `a` or `b` is the best idea."
+msgstr ""
+
+#: Game.Levels.Addition.L02_succadd
+msgid "Induction on `a` will not work here. You are still stuck with an `+ b`.\n"
+"I suggest you delete this line and try a different approach."
+msgstr ""
+
+#: Game.Levels.Addition.L02_succadd
+msgid "Note that `succ a + «{d}»` means `(succ a) + «{d}»`. Put your cursor\n"
+"on any `succ` in the goal or assumptions to see what exactly it's eating."
+msgstr ""
+
+#: Game.Levels.Addition.L02_succadd
+msgid "Well done! You now have enough tools to tackle the main boss of this level."
+msgstr ""
+
+#: Game.Levels.Addition.L03_addcomm
+msgid "add_comm (level boss)"
+msgstr ""
+
+#: Game.Levels.Addition.L03_addcomm
+msgid "[boss battle music]\n"
+"Time to prove one of the most important properties yet: Addition's Commutativity\n"
+"\n"
+"Look in your inventory to see the proofs you have available.\n"
+"These should be enough."
+msgstr ""
+
+#: Game.Levels.Addition.L03_addcomm
+msgid "`add_comm x y` is a proof of `x + y = y + x`."
+msgstr ""
+
+#: Game.Levels.Addition.L03_addcomm
+msgid "On the set of natural numbers, addition is commutative.\n"
+"In other words, if `a` and `b` are arbitrary natural numbers, then\n"
+"$a + b = b + a$."
+msgstr ""
+
+#: Game.Levels.Addition.L03_addcomm
+msgid "Induction on `a` or `b` -- it's all the same in this one."
+msgstr ""
+
+#: Game.Levels.Addition.L04_addassoc
+msgid "add_assoc (associativity of addition)"
+msgstr ""
+
+#: Game.Levels.Addition.L04_addassoc
+msgid "We've been adding up two numbers; in this level we will add up three.\n"
+"\n"
+"  What does $x+y+z$ *mean*? It could either mean $(x+y)+z$, or it\n"
+"  could mean $x+(y+z)$. In Lean, $x+y+z$ means $(x+y)+z$.\n"
+"\n"
+"  But why do we care which one it means; $(x+y)+z$ and $x+(y+z)$ are *equal*!\n"
+"\n"
+"  That's true, but we didn't prove it yet. Let's prove it now by induction."
+msgstr ""
+
+#: Game.Levels.Addition.L04_addassoc
+msgid "`add_assoc a b c` is a proof\n"
+"that `(a + b) + c = a + (b + c)`. Note that in Lean `(a + b) + c` prints\n"
+"as `a + b + c`, because the notation for addition is defined to be left\n"
+"associative."
+msgstr ""
+
+#: Game.Levels.Addition.L04_addassoc
+msgid "On the set of natural numbers, addition is associative.\n"
+"In other words, if $a, b$ and $c$ are arbitrary natural numbers, we have\n"
+"$ (a + b) + c = a + (b + c). $"
+msgstr ""
+
+#: Game.Levels.Addition.L04_addassoc
+msgid "Remember that when Lean writes `a + b + c`, it means `(a + b) + c`.\n"
+"If you are not sure where the brackets are in an expression, just hover\n"
+"your cursor over it and look at what gets highlighted. For example,\n"
+"hover over both `+` symbols on the left hand side of the goal and\n"
+"you'll see where the invisible brackets are."
+msgstr ""
+
+#: Game.Levels.Addition.L04_addassoc
+msgid "A passing mathematician congratulates you on proving that naturals\n"
+"are an additive commutative monoid.\n"
+"\n"
+"Let's practice using `add_assoc` and `add_comm` in one more level,\n"
+"before we leave addition world."
+msgstr ""
+
+#: Game.Levels.Addition.L05_radcomm
+msgid "add_right_comm"
+msgstr ""
+
+#: Game.Levels.Addition.L05_radcomm
+msgid "`add_comm b c` is a proof that `b + c = c + b`. But if your goal\n"
+"is `a + b + c = a + c + b` then `rw [add_comm b c]` will not\n"
+"work! Because the goal means `(a + b) + c = (a + c) + b` so there\n"
+"is no `b + c` term *directly* in the goal.\n"
+"\n"
+"Use associativity and commutativity to prove `add_right_comm`.\n"
+"You don't need induction. `add_assoc` moves brackets around,\n"
+"and `add_comm` moves variables around.\n"
+"\n"
+"Remember that you can do more targetted rewrites by\n"
+"adding explicit variables as inputs to theorems. For example `rw [add_comm b]`\n"
+"will only do rewrites of the form `b + ? = ? + b`, and `rw [add_comm b c]`\n"
+"will only do rewrites of the form `b + c = c + b`."
+msgstr ""
+
+#: Game.Levels.Addition.L05_radcomm
+msgid "`add_right_comm a b c` is a proof that `(a + b) + c = (a + c) + b`\n"
+"\n"
+"In Lean, `a + b + c` means `(a + b) + c`, so this result gets displayed\n"
+"as `a + b + c = a + c + b`."
+msgstr ""
+
+#: Game.Levels.Addition.L05_radcomm
+msgid "If $a, b$ and $c$ are arbitrary natural numbers, we have\n"
+"$(a + b) + c = (a + c) + b$."
+msgstr ""
+
+#: Game.Levels.Addition.L05_radcomm
+msgid "You've now seen all the tactics you need to beat the final boss of the game.\n"
+"You can begin the journey towards this boss by entering Multiplication World.\n"
+"\n"
+"Or you can go off the beaten track and learn some new tactics in Implication\n"
+"World. These tactics let you prove more facts about addition, such as\n"
+"how to deduce `a = 0` from `x + a = x`.\n"
+"\n"
+"Click \"Leave World\" and make your choice."
+msgstr ""
+
+#: Game.Levels.Addition
+msgid "Addition World"
+msgstr ""
+
+#: Game.Levels.Addition
+msgid "Welcome to Addition World! In this world we'll learn the `induction` tactic.\n"
+"This will enable us to defeat the boss level of this world, namely `x + y = y + x`.\n"
+"\n"
+"The tactics `rw`, `rfl` and `induction` are the only tactics you'll need to\n"
+"beat all the levels in Addition World, Multiplication World, and Power World.\n"
+"Power World contains the final boss of the game.\n"
+"\n"
+"There are plenty more tactics in this game, but you'll only need to know them if you\n"
+"want to explore the game further (for example if you decide to 100%\n"
+"the game)."
+msgstr ""
+
 #: Game
 msgid "Intro to Lean"
 msgstr ""
@@ -632,7 +902,8 @@ msgstr ""
 msgid "# An Intro to Lean by the University of Hyperion\n"
 "\n"
 "## Content\n"
-"* Basics: Proving the simplest theorem"
+"* Basics: Proving the simplest theorem, $1 + 1 = 2$\n"
+"* Addition: Defining Addition"
 msgstr ""
 
 #: Game

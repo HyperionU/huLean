@@ -1,4 +1,5 @@
 import Game.Levels.Basics
+import Game.Levels.Addition
 
 -- Here's what we'll put on the title screen
 Title "Intro to Lean"
@@ -7,7 +8,8 @@ Introduction
 # An Intro to Lean by the University of Hyperion
 
 ## Content
-* Basics: Proving the simplest theorem
+* Basics: Proving the simplest theorem, $1 + 1 = 2$
+* Addition: Defining Addition
 "
 
 Info "
