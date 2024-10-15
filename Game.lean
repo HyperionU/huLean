@@ -1,11 +1,13 @@
-import Game.Levels.DemoWorld
+import Game.Levels.Basics
 
 -- Here's what we'll put on the title screen
-Title "Hello World Game"
+Title "Intro to Lean"
 Introduction
 "
-This text appears on the starting page where one selects the world/level to play.
-You can use markdown.
+# An Intro to Lean by the University of Hyperion
+
+## Content
+* Basics: Proving the simplest theorem
 "
 
 Info "
