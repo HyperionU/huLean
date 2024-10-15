@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Wed Apr 10 15:31:40 2024\n"
+"POT-Creation-Date: Tue Oct 15 21:07:13 2024\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -20,47 +20,610 @@ msgstr ""
 msgid "intermediate goal solved! 🎉"
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "Hello World"
+#: Game.Levels.Basics.L01_rfl
+msgid "On: rfl"
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "This text is shown as first message when the level is played.\n"
-"You can insert hints in the proof below. They will appear in this side panel\n"
-"depending on the proof a user provides."
+#: Game.Levels.Basics.L01_rfl
+msgid "# Read this first\n"
+"\n"
+"Each level in this game involves proving a mathematical theorem (the \"Goal\").\n"
+"The goal will be a statement about *numbers*. Some numbers in this game have known values.\n"
+"Those numbers have names like $37$. Other numbers will be secret. They're called things\n"
+"like $x$ and $q$. We know $x$ is a number, we just don't know which one.\n"
+"\n"
+"In this first level we're going to prove the theorem that $37x + q = 37x + q$.\n"
+"You can see `x q : ℕ` in the *Objects* below, which means that `x` and `q`\n"
+"are numbers.\n"
+"\n"
+"We solve goals in Lean using *Tactics*, and the first tactic we're\n"
+"going to learn is called `rfl`, which proves all theorems of the form $X = X$.\n"
+"\n"
+"Prove that $5x+q=5x+q$ by executing the `rfl` tactic."
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "You can either start using `«{h}»` or `«{g}»`."
+#: Game.Levels.Basics.L01_rfl
+msgid "If $x, q ∈ ℕ$, then $5x + q = 5x + q$"
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "You should use `«{h}»` now."
+#: Game.Levels.Basics.L01_rfl
+msgid "In order to use the tactic `rfl` you can enter it in the text box\n"
+"under the goal and hit \"Execute\"."
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "You should use `«{g}»` now."
+#: Game.Levels.Basics.L01_rfl
+msgid "Congratulations! You completed your first verified proof!\n"
+"\n"
+"Remember that `rfl` is a *tactic*. If you ever want information about the `rfl` tactic,\n"
+"you can click on `rfl` in the list of tactics on the right.\n"
+"\n"
+"Now click on \"Next\" to learn about the `rw` tactic."
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "This last message appears if the level is solved."
+#: Game.Levels.Basics.L01_rfl
+msgid "## Summary\n"
+"\n"
+"`rfl` proves goals of the form `X = X`.\n"
+"\n"
+"In other words, the `rfl` tactic will close any goal of the\n"
+"form `A = B` if `A` and `B` are *identical*.\n"
+"\n"
+"`rfl` is short for \\\"reflexivity (of equality)\\\".\n"
+"\n"
+"## Example:\n"
+"\n"
+"If the goal looks like this:\n"
+"\n"
+"```\n"
+"x + 37 = x + 37\n"
+"```\n"
+"\n"
+"then `rfl` will close it. But if it looks like `0 + x = x` then `rfl` won't work, because even\n"
+"though $0+x$ and $x$ are always equal as *numbers*, they are not equal as *terms*.\n"
+"The only term which is identical to `0 + x` is `0 + x`.\n"
+"\n"
+"## Details\n"
+"\n"
+"`rfl` is short for \\\"reflexivity of equality\\\".\n"
+"\n"
+"## Game Implementation\n"
+"\n"
+"*Note that our `rfl` is weaker than the version used in core Lean and `mathlib`,\n"
+"for pedagogical purposes; mathematicians do not distinguish between propositional\n"
+"and definitional equality because they think about definitions in a different way\n"
+"to type theorists (`zero_add` and `add_zero` are both \\\"facts\\\" as far\n"
+"as mathematicians are concerned, and who cares what the definition of addition is).*"
 msgstr ""
 
-#: Game.Levels.DemoWorld
-msgid "Demo World"
+#: Game.Levels.Basics.L02_rw
+msgid "the rw tactic"
 msgstr ""
 
-#: Game.Levels.DemoWorld
+#: Game.Levels.Basics.L02_rw
+msgid "## Summary\n"
+"\n"
+"If `h` is a proof of an equality `X = Y`, then `rw [h]` will change\n"
+"all `X`s in the goal to `Y`s. It's the way to \\\"substitute in\\\".\n"
+"\n"
+"## Variants\n"
+"\n"
+"* `rw [← h]` (changes `Y`s to `X`s; get the back arrow by typing `\\left ` or `\\l`.)\n"
+"\n"
+"* `rw [h1, h2]` (a sequence of rewrites)\n"
+"\n"
+"* `rw [h] at h2` (changes `X`s to `Y`s in hypothesis `h2`)\n"
+"\n"
+"* `rw [h] at h1 h2 ⊢` (changes `X`s to `Y`s in two hypotheses and the goal;\n"
+"get the `⊢` symbol with `\\|-`.)\n"
+"\n"
+"* `repeat rw [add_zero]` will keep changing `? + 0` to `?`\n"
+"until there are no more matches for `? + 0`.\n"
+"\n"
+"* `nth_rewrite 2 [h]` will change only the second `X` in the goal to `Y`.\n"
+"\n"
+"### Example:\n"
+"\n"
+"If you have the assumption `h : x = y + y` and your goal is\n"
+"```\n"
+"succ (x + 0) = succ (y + y)\n"
+"```\n"
+"\n"
+"then\n"
+"\n"
+"`rw [add_zero]`\n"
+"\n"
+"will change the goal into `succ x = succ (y + y)`, and then\n"
+"\n"
+"`rw [h]`\n"
+"\n"
+"will change the goal into `succ (y + y) = succ (y + y)`, which\n"
+"can be solved with `rfl`.\n"
+"\n"
+"### Example:\n"
+"\n"
+"You can use `rw` to change a hypothesis as well.\n"
+"For example, if you have two hypotheses\n"
+"```\n"
+"h1 : x = y + 3\n"
+"h2 : 2 * y = x\n"
+"```\n"
+"then `rw [h1] at h2` will turn `h2` into `h2 : 2 * y = y + 3`.\n"
+"\n"
+"## Common errors\n"
+"\n"
+"* You need the square brackets. `rw h` is never correct.\n"
+"\n"
+"* If `h` is not a *proof* of an *equality* (a statement of the form `A = B`),\n"
+"for example if `h` is a function or an implication,\n"
+"then `rw` is not the tactic you want to use. For example,\n"
+"`rw [P = Q]` is never correct: `P = Q` is the theorem *statement*,\n"
+"not the proof. If `h : P = Q` is the proof, then `rw [h]` will work.\n"
+"\n"
+"## Details\n"
+"\n"
+"The `rw` tactic is a way to do \\\"substituting in\\\". There\n"
+"are two distinct situations where you can use this tactic.\n"
+"\n"
+"1) Basic usage: if `h : A = B` is an assumption or\n"
+"the proof of a theorem, and if the goal contains one or more `A`s, then `rw [h]`\n"
+"will change them all to `B`s. The tactic will error\n"
+"if there are no `A`s in the goal.\n"
+"\n"
+"2) Advanced usage: Assumptions coming from theorem proofs\n"
+"often have missing pieces. For example `add_zero`\n"
+"is a proof that `? + 0 = ?` because `add_zero` really is a function,\n"
+"and `?` is the input. In this situation `rw` will look through the goal\n"
+"for any subterm of the form `x + 0`, and the moment it\n"
+"finds one it fixes `?` to be `x` then changes all `x + 0`s to `x`s.\n"
+"\n"
+"Exercise: think about why `rw [add_zero]` changes the term\n"
+"`(0 + 0) + (x + 0) + (0 + 0) + (x + 0)` to\n"
+"`0 + (x + 0) + 0 + (x + 0)`\n"
+"\n"
+"If you can't remember the name of the proof of an equality, look it up in\n"
+"the list of lemmas on the right.\n"
+"\n"
+"## Targetted usage\n"
+"\n"
+"If your goal is `b + c + a = b + (a + c)` and you want to rewrite `a + c`\n"
+"to `c + a`, then `rw [add_comm]` will not work because Lean finds another\n"
+"addition first and swaps those inputs instead. Use `rw [add_comm a c]` to\n"
+"guarantee that Lean rewrites `a + c` to `c + a`. This works because\n"
+"`add_comm` is a proof that `?1 + ?2 = ?2 + ?1`, `add_comm a` is a proof\n"
+"that `a + ? = ? + a`, and `add_comm a c` is a proof that `a + c = c + a`.\n"
+"\n"
+"If `h : X = Y` then `rw [h]` will turn all `X`s into `Y`s.\n"
+"If you only want to change the 37th occurrence of `X`\n"
+"to `Y` then do `nth_rewrite 37 [h]`."
+msgstr ""
+
+#: Game.Levels.Basics.L02_rw
+msgid "## Summary\n"
+"\n"
+"`repeat t` repeatedly applies the tactic `t`\n"
+"to the goal. You don't need to use this\n"
+"tactic, it just speeds things up sometimes.\n"
+"\n"
+"## Example\n"
+"\n"
+"`repeat rw [add_zero]` will turn the goal\n"
+"`a + 0 + (0 + (0 + 0)) = b + 0 + 0`\n"
+"into the goal\n"
+"`a = b`.\n"
+"\"\n"
+"\n"
+"TacticDoc nth_rewrite \"\n"
+"## Summary\n"
+"\n"
+"If `h : X = Y` and there are several `X`s in the goal, then\n"
+"`nth_rewrite 3 [h]` will just change the third `X` to a `Y`.\n"
+"\n"
+"## Example\n"
+"\n"
+"If the goal is `2 + 2 = 4` then `nth_rewrite 2 [two_eq_succ_one]`\n"
+"will change the goal to `2 + succ 1 = 4`. In contrast, `rw [two_eq_succ_one]`\n"
+"will change the goal to `succ 1 + succ 1 = 4`."
+msgstr ""
+
+#: Game.Levels.Basics.L02_rw
+msgid "## Summary\n"
+"\n"
+"If `h : X = Y` and there are several `X`s in the goal, then\n"
+"`nth_rewrite 3 [h]` will just change the third `X` to a `Y`.\n"
+"\n"
+"## Example\n"
+"\n"
+"If the goal is `2 + 2 = 4` then `nth_rewrite 2 [two_eq_succ_one]`\n"
+"will change the goal to `2 + succ 1 = 4`. In contrast, `rw [two_eq_succ_one]`\n"
+"will change the goal to `succ 1 + succ 1 = 4`."
+msgstr ""
+
+#: Game.Levels.Basics.L02_rw
+msgid "In this level the *goal* is $2y=2(x+7)$ but to help us we\n"
+"have an *assumption* `h` saying that $y = x + 7$. Check that you can see `h` in\n"
+"your list of assumptions. Lean thinks of `h` as being a secret proof of the\n"
+"assumption, rather like `x` is a secret number.\n"
+"\n"
+"Before we can use `rfl`, we have to \"substitute in for $y$\".\n"
+"We do this in Lean by *rewriting* the proof `h`,\n"
+"using the `rw` tactic."
+msgstr ""
+
+#: Game.Levels.Basics.L02_rw
+msgid "If $x$ and $y$ are natural numbers, and $y = x + 7$, then $2y = 2(x + 7)$."
+msgstr ""
+
+#: Game.Levels.Basics.L02_rw
+msgid "First execute `rw [h]` to replace the `y` with `x + 7`."
+msgstr ""
+
+#: Game.Levels.Basics.L02_rw
+msgid "Can you take it from here? Click on \"Show more help!\" if you need a hint."
+msgstr ""
+
+#: Game.Levels.Basics.L02_rw
+msgid "Now `rfl` will work."
+msgstr ""
+
+#: Game.Levels.Basics.L02_rw
+msgid "You now know enough tactics to prove `1 + 1 = 2`! Let's begin the journey."
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "Numbers"
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "`ℕ` is the natural numbers, just called \\\"numbers\\\" in this game. It's\n"
+"defined via two rules:\n"
+"\n"
+"* `0 : ℕ` (zero is a number)\n"
+"* `succ (n : ℕ) : ℕ` (the successor of a number is a number)\n"
+"\n"
+"## Game Implementation\n"
+"\n"
+"*The game uses its own copy of the natural numbers, called `MyNat` with notation `ℕ`.\n"
+"It is distinct from the Lean natural numbers `Nat`, which should hopefully\n"
+"never leak into the natural number game.*"
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "`one_eq_succ_zero` is a proof of `1 = succ 0`.\""
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "`two_eq_succ_one` is a proof of `2 = succ 1`."
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "`three_eq_succ_two` is a proof of `3 = succ 2`."
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "`four_eq_succ_three` is a proof of `4 = succ 3`."
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "## The birth of number.\n"
+"\n"
+"Numbers in Lean are defined by two rules.\n"
+"\n"
+"* `0` is a number.\n"
+"* If `n` is a number, then the *successor* `succ n` of `n` is a number.\n"
+"\n"
+"The successor of `n` means the number after `n`. Let's learn to\n"
+"count, and name a few small numbers.\n"
+"\n"
+"## Counting to four.\n"
+"\n"
+"`0` is a number, so `succ 0` is a number. Let's call this new number `1`.\n"
+"Similarly let's define `2 = succ 1`, `3 = succ 2` and `4 = succ 3`.\n"
+"This gives us plenty of numbers to be getting along with.\n"
+"\n"
+"The *proof* that `2 = succ 1` is called `two_eq_succ_one`.\n"
+"Check out the \"012\" tab in the list of lemmas on the right\n"
+"for this and other proofs.\n"
+"\n"
+"Let's prove that $2$ is the number after the number after zero."
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "$2$ is the number after the number after $0$."
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "Start with `rw [two_eq_succ_one]` to begin to break `2` down into its definition."
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "Can you take it from here?"
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "Next turn `1` into `succ 0` with `rw [one_eq_succ_zero]`."
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "Now finish the job with `rfl`."
+msgstr ""
+
+#: Game.Levels.Basics.L03_num
+msgid "Note that you can do `rw [two_eq_succ_one, one_eq_succ_zero]`\n"
+"and then `rfl` to solve this level in two lines."
+msgstr ""
+
+#: Game.Levels.Basics.L04_revrw
+msgid "rewriting backwards"
+msgstr ""
+
+#: Game.Levels.Basics.L04_revrw
+msgid "If `h` is a proof of `X = Y` then `rw [h]` will\n"
+"turn `X`s into `Y`s. But what if we want to\n"
+"turn `Y`s into `X`s? To tell the `rw` tactic\n"
+"we want this, we use a left arrow `←`. Type\n"
+"`\\l` and then hit the space bar to get this arrow.\n"
+"\n"
+"Let's prove that $2$ is the number after the number\n"
+"after $0$ again, this time by changing `succ (succ 0)`\n"
+"into `2`."
+msgstr ""
+
+#: Game.Levels.Basics.L04_revrw
+msgid "$2$ is the number after the number after $0$."
+msgstr ""
+
+#: Game.Levels.Basics.L04_revrw
+msgid "Try `rw [← one_eq_succ_zero]` to change `succ 0` into `1`."
+msgstr ""
+
+#: Game.Levels.Basics.L04_revrw
+msgid "Can you now change the goal into `2 = 2`?"
+msgstr ""
+
+#: Game.Levels.Basics.L04_revrw
+msgid "Now `rw [← two_eq_succ_one]` will change `succ 1` into `2`."
+msgstr ""
+
+#: Game.Levels.Basics.L04_revrw
+msgid "Why did we not just define `succ n` to be `n + 1`? Because we have not\n"
+"even *defined* addition yet! We'll do that in the next level."
+msgstr ""
+
+#: Game.Levels.Basics.L05_add_I
+msgid "Adding zero"
+msgstr ""
+
+#: Game.Levels.Basics.L05_add_I
+msgid "`Add a b`, with notation `a + b`, is\n"
+"the usual sum of natural numbers. Internally it is defined\n"
+"via the following two hypotheses:\n"
+"\n"
+"* `add_zero a : a + 0 = a`\n"
+"\n"
+"* `add_succ a b : a + succ b = succ (a + b)`\n"
+"\n"
+"Other theorems about naturals, such as `zero_add a : 0 + a = a`, are proved\n"
+"by induction using these two basic theorems.\""
+msgstr ""
+
+#: Game.Levels.Basics.L05_add_I
+msgid "`add_zero a` is a proof that `a + 0 = a`.\n"
+"\n"
+"## Summary\n"
+"\n"
+"`add_zero` is really a function, which\n"
+"eats a number, and returns a proof of a theorem\n"
+"about that number. For example `add_zero 37` is\n"
+"a proof that `37 + 0 = 37`.\n"
+"\n"
+"The `rw` tactic will accept `rw [add_zero]`\n"
+"and will try to figure out which number you omitted\n"
+"to input.\n"
+"\n"
+"## Details\n"
+"\n"
+"A mathematician sometimes thinks of `add_zero`\n"
+"as \\\"one thing\\\", namely a proof of $\\forall n ∈ ℕ, n + 0 = n$.\n"
+"This is just another way of saying that it's a function which\n"
+"can eat any number n and will return a proof that `n + 0 = n`."
+msgstr ""
+
+#: Game.Levels.Basics.L05_add_I
+msgid "## Summary\n"
+"\n"
+"`repeat t` repeatedly applies the tactic `t`\n"
+"to the goal. You don't need to use this\n"
+"tactic, it just speeds things up sometimes.\n"
+"\n"
+"## Example\n"
+"\n"
+"`repeat rw [add_zero]` will turn the goal\n"
+"`a + 0 + (0 + (0 + 0)) = b + 0 + 0`\n"
+"into the goal\n"
+"`a = b`."
+msgstr ""
+
+#: Game.Levels.Basics.L05_add_I
+msgid "We'd like to prove `2 + 2 = 4` but right now\n"
+"we can't even *state* it\n"
+"because we haven't yet defined addition.\n"
+"\n"
+"## Defining addition.\n"
+"\n"
+"How are we going to add $37$ to an arbitrary number $x$? Well,\n"
+"there are only two ways to make numbers in this game: $0$\n"
+"and successors. So to define `37 + x` we will need\n"
+"to know what `37 + 0` is and what `37 + succ x` is.\n"
+"Let's start with adding `0`.\n"
+"\n"
+"### Adding 0\n"
+"\n"
+"To make addition agree with our intuition, we should *define* `37 + 0`\n"
+"to be `37`. More generally, we should define `a + 0` to be `a` for\n"
+"any number `a`. The name of this proof in Lean is `add_zero a`.\n"
+"For example `add_zero 37` is a proof of `37 + 0 = 37`,\n"
+"`add_zero x` is a proof of `x + 0 = x`, and `add_zero` is a proof\n"
+"of `? + 0 = ?`.\n"
+"\n"
+"We write `add_zero x : x + 0 = x`, so `proof : statement`."
+msgstr ""
+
+#: Game.Levels.Basics.L05_add_I
+msgid "$a+(b+0)+(c+0)=a+b+c.$"
+msgstr ""
+
+#: Game.Levels.Basics.L05_add_I
+msgid "`rw [add_zero]` will change `b + 0` into `b`."
+msgstr ""
+
+#: Game.Levels.Basics.L05_add_I
+msgid "Now `rw [add_zero]` will change `c + 0` into `c`."
+msgstr ""
+
+#: Game.Levels.Basics.L05_add_I
+msgid "Those of you interested in speedrunning the game may want to know\n"
+"that `repeat rw [add_zero]` will do both rewrites at once."
+msgstr ""
+
+#: Game.Levels.Basics.L06_add_II
+msgid "Precision rewriting"
+msgstr ""
+
+#: Game.Levels.Basics.L06_add_II
+msgid "## Precision rewriting\n"
+"\n"
+"In the last level, there was `b + 0` and `c + 0`,\n"
+"and `rw [add_zero]` changed the first one it saw,\n"
+"which was `b + 0`. Let's learn how to tell Lean\n"
+"to change `c + 0` first by giving `add_zero` an\n"
+"explicit input."
+msgstr ""
+
+#: Game.Levels.Basics.L06_add_II
+msgid "$a+(b+0)+(c+0)=a+b+c.$"
+msgstr ""
+
+#: Game.Levels.Basics.L06_add_II
+msgid "Try `rw [add_zero c]`."
+msgstr ""
+
+#: Game.Levels.Basics.L06_add_II
+msgid "`add_zero c` is a proof of `c + 0 = c` so that was what got rewritten.\n"
+"You can now change `b + 0` to `b` with `rw [add_zero]` or `rw [add_zero b]`. You\n"
+"can usually stick to `rw [add_zero]` unless you need real precision."
+msgstr ""
+
+#: Game.Levels.Basics.L06_add_II
+msgid "Let's now learn about Peano's second axiom for addition, `add_succ`."
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "add_succ"
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "`add_succ a b` is the proof of `a + succ b = succ (a + b)`."
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "`succ_eq_add_one n` is the proof that `succ n = n + 1`."
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "Every number in Lean is either $0$ or a successor. We know how to add $0$,\n"
+"but we need to figure out how to add successors. Let's say we already know\n"
+"that `37 + d = q`. What should the answer to `37 + succ d` be? Well,\n"
+"`succ d` is one bigger than `d`, so `37 + succ d` should be `succ q`,\n"
+"the number one bigger than `q`. More generally `x + succ d` should\n"
+"be `succ (x + d)`. Let's add this as a lemma.\n"
+"\n"
+"* `add_succ x d : x + succ d = succ (x + d)`\n"
+"\n"
+"If you ever see `... + succ ...` in your goal, `rw [add_succ]` is\n"
+"normally a good idea.\n"
+"\n"
+"Let's now prove that `succ n = n + 1`. Figure out how to get `+ succ` into\n"
+"the picture, and then `rw [add_succ]`. Switch between the `+` (addition) and\n"
+"`012` (numerals) tabs under \"Theorems\" on the right to\n"
+"see which proofs you can rewrite."
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "For all natural numbers $a$, we have $\\operatorname{succ}(a) = a+1$."
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "Start by unravelling the `1`."
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "`rw [one_eq_succ_zero]` will do this."
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "Now you can `rw [add_succ]`"
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "And now `rw [add_zero]`"
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "And finally `rfl`."
+msgstr ""
+
+#: Game.Levels.Basics.L07_addsucc
+msgid "[dramatic music]. Now are you ready to face the first boss of the game?"
+msgstr ""
+
+#: Game.Levels.Basics.L08_two
+msgid "1+1=2"
+msgstr ""
+
+#: Game.Levels.Basics.L08_two
+msgid "Good luck!\n"
+"\n"
+"  One last hint. If `h : X = Y` then `rw [h]` will change *all* `X`s into `Y`s.\n"
+"  If you only want to change one of them, say the 3rd one, then use\n"
+"  `nth_rewrite 3 [h]`."
+msgstr ""
+
+#: Game.Levels.Basics.L08_two
+msgid "$1+1=2$."
+msgstr ""
+
+#: Game.Levels.Basics.L08_two
+msgid "Optional extra: you can run this proof yourself. Switch the game into \"Editor mode\" by clicking\n"
+"on the `</>` button in the top right. You can now see your proof\n"
+"written as several lines of code. Move your cursor between lines to see\n"
+"the goal state at any point. Now cut and paste your code elsewhere if you\n"
+"want to save it, and paste the above proof in instead. Move your cursor\n"
+"around to investigate. When you've finished, click the `>_` button in the top right to\n"
+"move back into \"Typewriter mode\".\n"
+"\n"
+"You have finished the Basics world!\n"
+"Click \"Leave World\" to go back to the\n"
+"overworld, and select Addition World, where you will learn\n"
+"about the `induction` tactic."
+msgstr ""
+
+#: Game.Levels.Basics
+msgid "The Basics of Lean"
+msgstr ""
+
+#: Game.Levels.Basics
 msgid "This introduction is shown before one enters level 1 of the demo world. Use markdown."
 msgstr ""
 
 #: Game
-msgid "Hello World Game"
+msgid "Intro to Lean"
 msgstr ""
 
 #: Game
-msgid "This text appears on the starting page where one selects the world/level to play.\n"
-"You can use markdown."
+msgid "# An Intro to Lean by the University of Hyperion\n"
+"\n"
+"## Content\n"
+"* Basics: Proving the simplest theorem"
 msgstr ""
 
 #: Game
