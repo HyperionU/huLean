@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Tue Oct 15 22:52:36 2024\n"
+"POT-Creation-Date: Wed Oct 16 01:17:04 2024\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -892,6 +892,303 @@ msgid "Welcome to Addition World! In this world we'll learn the `induction` tact
 "There are plenty more tactics in this game, but you'll only need to know them if you\n"
 "want to explore the game further (for example if you decide to 100%\n"
 "the game)."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "mul_one"
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "See the new \"*\" tab in your lemmas, containing `mul_zero` and `mul_succ`.\n"
+"Right now these are the only facts we know about multiplication.\n"
+"Let's prove nine more.\n"
+"\n"
+"Let's start with a warm-up: no induction needed for this one,\n"
+"because we know `1` is a successor."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "`Mul a b`, with notation `a * b`, is the usual\n"
+"  product of natural numbers. Internally it is\n"
+"  via two axioms:\n"
+"\n"
+"  * `mul_zero a : a * 0 = 0`\n"
+"\n"
+"  * `mul_succ a b : a * succ b = a * b + a`\n"
+"\n"
+"Other theorems about naturals, such as `zero_mul`,\n"
+"are proved by induction from these two basic theorems."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "`mul_zero m` is the proof that `m * 0 = 0`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "`mul_succ a b` is the proof that `a * succ b = a * b + a`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "`mul_one m` is the proof that `m * 1 = m`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "For any natural number $m$, we have $ m \\times 1 = m$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L02_zeromul
+msgid "zero_mul"
+msgstr ""
+
+#: Game.Levels.Multiplication.L02_zeromul
+msgid "Our first challenge is `mul_comm x y : x * y = y * x`,\n"
+"and we want to prove it by induction. The zero\n"
+"case will need `mul_zero` (which we have)\n"
+"and `zero_mul` (which we don't), so let's\n"
+"start with this."
+msgstr ""
+
+#: Game.Levels.Multiplication.L02_zeromul
+msgid "`zero_mul x` is the proof that `0 * x = 0`.\n"
+"\n"
+"Note: `zero_mul` is a `simp` lemma."
+msgstr ""
+
+#: Game.Levels.Multiplication.L02_zeromul
+msgid "For all natural numbers $m$, we have $ 0 \\times m = 0$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L03_succmul
+msgid "succ_mul"
+msgstr ""
+
+#: Game.Levels.Multiplication.L03_succmul
+msgid "Similarly we have `mul_succ`\n"
+"but we're going to need `succ_mul` (guess what it says -- maybe you\n"
+"are getting the hang of Lean's naming conventions).\n"
+"\n"
+"The last level from addition world might help you in this level.\n"
+"If you can't remember what it is, you can go back to the\n"
+"home screen by clicking the house icon and then taking a look.\n"
+"You won't lose any progress."
+msgstr ""
+
+#: Game.Levels.Multiplication.L03_succmul
+msgid "`succ_mul a b` is the proof that `succ a * b = a * b + b`.\n"
+"\n"
+"It could be deduced from `mul_succ` and `mul_comm`, however this argument\n"
+"would be circular because the proof of `mul_comm` uses `mul_succ`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L03_succmul
+msgid "For all natural numbers $a$ and $b$, we have\n"
+"$(\\operatorname{succ}\\ a) \\times b = a\\times b + b$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L04_mulcomm
+msgid "mul_comm"
+msgstr ""
+
+#: Game.Levels.Multiplication.L04_mulcomm
+msgid "The first sub-boss of Multiplication World is `mul_comm x y : x * y = y * x`.\n"
+"\n"
+"When you've proved this theorem we will have \"spare\" proofs\n"
+"such as `zero_mul`, which is now easily deducible from `mul_zero`.\n"
+"But we'll keep hold of these proofs anyway, because it's convenient\n"
+"to have exactly the right tool for a job."
+msgstr ""
+
+#: Game.Levels.Multiplication.L04_mulcomm
+msgid "`mul_comm` is the proof that multiplication is commutative. More precisely,\n"
+"`mul_comm a b` is the proof that `a * b = b * a`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L04_mulcomm
+msgid "Multiplication is commutative."
+msgstr ""
+
+#: Game.Levels.Multiplication.L05_onemul
+msgid "one_mul"
+msgstr ""
+
+#: Game.Levels.Multiplication.L05_onemul
+msgid "You can prove $1\\times m=m$ in at least three ways.\n"
+"Either by induction, or by using `succ_mul`, or\n"
+"by using commutativity. Which do you think is quickest?"
+msgstr ""
+
+#: Game.Levels.Multiplication.L05_onemul
+msgid "`one_mul m` is the proof `1 * m = m`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L05_onemul
+msgid "For any natural number $m$, we have $ 1 \\times m = m$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L05_onemul
+msgid "Here's my solution:\n"
+"```\n"
+"rw [mul_comm, mul_one]\n"
+"rfl\n"
+"```"
+msgstr ""
+
+#: Game.Levels.Multiplication.L06_twomul
+msgid "two_mul"
+msgstr ""
+
+#: Game.Levels.Multiplication.L06_twomul
+msgid "This level is more important than you think; it plays\n"
+"a useful role when battling a big boss later on."
+msgstr ""
+
+#: Game.Levels.Multiplication.L06_twomul
+msgid "`two_mul m` is the proof that `2 * m = m + m`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L06_twomul
+msgid "For any natural number $m$, we have $ 2 \\times m = m+m$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L06_twomul
+msgid "Here's my solution:\n"
+"```\n"
+"rw [two_eq_succ_one, succ_mul, one_mul]\n"
+"rfl\n"
+"```"
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "mul_add"
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "Our next goal is \"left and right distributivity\",\n"
+"meaning $a(b+c)=ab+ac$ and $(b+c)a=ba+ca$. Rather than\n"
+"these slightly pompous names, the name of the proofs\n"
+"in Lean are descriptive. Let's start with\n"
+"`mul_add a b c`, the proof of `a * (b + c) = a * b + a * c`.\n"
+"Note that the left hand side contains a multiplication\n"
+"and then an addition."
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "Multiplication distributes\n"
+"over addition on the left.\n"
+"\n"
+"`mul_add a b c` is the proof that `a * (b + c) = a * b + a * c`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "Multiplication is distributive over addition on the left.\n"
+"In other words, for all natural numbers $a$, $b$ and $c$, we have\n"
+"$a(b + c) = ab + ac$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "You can do induction on any of the three variables. Some choices\n"
+"are harder to push through than others. Can you do the inductive step in\n"
+"5 rewrites only?"
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "Induction on `a` is the most troublesome, then `b`,\n"
+"and `c` is the easiest."
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "Here's my solution:\n"
+"```\n"
+"induction c with d hd\n"
+"rw [add_zero, mul_zero, add_zero]\n"
+"rfl\n"
+"rw [add_succ, mul_succ, hd, mul_succ, add_assoc]\n"
+"rfl\n"
+"```\n"
+"\n"
+"Inducting on `a` or `b` also works, but might take longer."
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_addmul
+msgid "add_mul"
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_addmul
+msgid "`add_mul` is just as fiddly to prove by induction; but there's a trick\n"
+"which avoids it. Can you spot it?"
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_addmul
+msgid "`add_mul a b c` is a proof that $(a+b)c=ac+bc$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_addmul
+msgid "Addition is distributive over multiplication.\n"
+"In other words, for all natural numbers $a$, $b$ and $c$, we have\n"
+"$(a + b) \\times c = ac + bc$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_addmul
+msgid "Here's my proof:\n"
+"```\n"
+"rw [mul_comm, mul_add]\n"
+"repeat rw [mul_comm c]\n"
+"rfl\n"
+"```"
+msgstr ""
+
+#: Game.Levels.Multiplication.L09_mulassoc
+msgid "mul_assoc"
+msgstr ""
+
+#: Game.Levels.Multiplication.L09_mulassoc
+msgid "We now have enough to prove that multiplication is associative,\n"
+"the boss level of multiplication world. Good luck!"
+msgstr ""
+
+#: Game.Levels.Multiplication.L09_mulassoc
+msgid "`mul_assoc a b c` is a proof that `(a * b) * c = a * (b * c)`.\n"
+"\n"
+"Note that when Lean says `a * b * c` it means `(a * b) * c`.\n"
+"\n"
+"Note that `(a * b) * c = a * (b * c)` cannot be proved by \\\"pure thought\\\":\n"
+"for example subtraction is not associative, as `(6 - 2) - 1` is not\n"
+"equal to `6 - (2 - 1)`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L09_mulassoc
+msgid "Multiplication is associative.\n"
+"In other words, for all natural numbers $a$, $b$ and $c$, we have\n"
+"$(ab)c = a(bc)$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L09_mulassoc
+msgid "A passing mathematician notes that you've proved\n"
+"that the natural numbers are a commutative semiring.\n"
+"\n"
+"If you want to begin your journey to the final boss, head for Power World."
+msgstr ""
+
+#: Game.Levels.Multiplication
+msgid "Multiplication World"
+msgstr ""
+
+#: Game.Levels.Multiplication
+msgid "How should we define `37 * x`? Just like addition, we need to give definitions\n"
+"when $x=0$ and when $x$ is a successor.\n"
+"\n"
+"The zero case is easy: we define `37 * 0` to be `0`. Now say we know\n"
+"`37 * d`. What should `37 * succ d` be? Well, that's $(d+1)$ $37$s,\n"
+"so it should be `37 * d + 37`.\n"
+"\n"
+"Here are the definitions in Lean.\n"
+"\n"
+"  * `mul_zero a : a * 0 = 0`\n"
+"  * `mul_succ a d : a * succ d = a * d + a`\n"
+"\n"
+"In this world, we must not only prove facts about multiplication like `a * b = b * a`,\n"
+"we must also prove facts about how multiplication interacts with addition, like `a * (b + c) = a * b + a * c`.\n"
+"Let's get started."
 msgstr ""
 
 #: Game

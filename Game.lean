@@ -1,5 +1,6 @@
 import Game.Levels.Basics
 import Game.Levels.Addition
+import Game.Levels.Multiplication
 
 -- Here's what we'll put on the title screen
 Title "Intro to Lean"
