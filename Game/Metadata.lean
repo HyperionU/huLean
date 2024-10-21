@@ -9,3 +9,4 @@ import Game.Tactic.mlDep
 import Game.Tactic.rfl
 import Game.Tactic.rw
 import Game.Tactic.Induction
+import Game.Tactic.xyzzy

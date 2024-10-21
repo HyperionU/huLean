@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Wed Oct 16 01:17:04 2024\n"
+"POT-Creation-Date: Mon Oct 21 16:22:34 2024\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -1191,6 +1191,807 @@ msgid "How should we define `37 * x`? Just like addition, we need to give defini
 "Let's get started."
 msgstr ""
 
+#: Game.Levels.Implication.L01_exact_I
+msgid "The `exact` tactic"
+msgstr ""
+
+#: Game.Levels.Implication.L01_exact_I
+msgid "## Summary\n"
+"\n"
+"If the goal is a statement `P`, then `exact h` will close the goal if `h` is a proof of `P`.\n"
+"\n"
+"### Example\n"
+"\n"
+"If the goal is `x = 37` and you have a hypothesis `h : x = 37`\n"
+"then `exact h` will solve the goal.\n"
+"\n"
+"### Example\n"
+"\n"
+"If the goal is `x + 0 = x` then `exact add_zero x` will close the goal.\n"
+"\n"
+"### Exact needs to be exactly right\n"
+"\n"
+"Note that `exact add_zero` will *not work* in the previous example;\n"
+"for `exact h` to work, `h` has to be *exactly* a proof of the goal.\n"
+"`add_zero` is a proof of `∀ n, n + 0 = n` or, if you like,\n"
+"a proof of `? + 0 = ?` where `?` needs to be supplied by the user.\n"
+"This is in contrast to `rw` and `apply`, which will \\\"guess the inputs\\\"\n"
+"if necessary. If the goal is `x + 0 = x` then `rw [add_zero]`\n"
+"and `rw [add_zero x]` will both change the goal to `x = x`,\n"
+"because `rw` guesses the input to the function `add_zero`."
+msgstr ""
+
+#: Game.Levels.Implication.L01_exact_I
+msgid "In this world we'll learn how to prove theorems of the form $P\\implies Q$.\n"
+"In other words, how to prove theorems of the form \"if $P$ is true, then $Q$ is true.\"\n"
+"To do that we need to learn some more tactics.\n"
+"\n"
+"The `exact` tactic can be used to close a goal which is exactly one of\n"
+"the hypotheses. It takes the name of the hypothesis as argument: `exact h`."
+msgstr ""
+
+#: Game.Levels.Implication.L01_exact_I
+msgid "Assuming $x+y=37$ and $3x+z=42$, we have $x+y=37$."
+msgstr ""
+
+#: Game.Levels.Implication.L01_exact_I
+msgid "The goal in this level is one of our hypotheses. Solve the goal by executing `exact h1`."
+msgstr ""
+
+#: Game.Levels.Implication.L02_exact_II
+msgid "`exact` practice."
+msgstr ""
+
+#: Game.Levels.Implication.L02_exact_II
+msgid "If the goal is not *exactly* a hypothesis, we can sometimes\n"
+"use rewrites to fix things up."
+msgstr ""
+
+#: Game.Levels.Implication.L02_exact_II
+msgid "Assuming $0+x=(0+y)+2$, we have $x=y+2$."
+msgstr ""
+
+#: Game.Levels.Implication.L02_exact_II
+msgid "You can use `rw [zero_add] at «{h}»` to rewrite at `«{h}»` instead\n"
+"of at the goal."
+msgstr ""
+
+#: Game.Levels.Implication.L02_exact_II
+msgid "Do that again!\n"
+"\n"
+"`rw [zero_add] at «{h}»` tries to fill in\n"
+"the arguments to `zero_add` (finding `«{x}»`) then it replaces all occurences of\n"
+"`0 + «{x}»` it finds. Therefor, it did not rewrite `0 + «{y}»`, yet."
+msgstr ""
+
+#: Game.Levels.Implication.L02_exact_II
+msgid "Now you could finish with `rw [«{h}»]` then `rfl`, but `exact «{h}»`\n"
+"does it in one line."
+msgstr ""
+
+#: Game.Levels.Implication.L02_exact_II
+msgid "Here's a two-line proof:\n"
+"```\n"
+"repeat rw [zero_add] at h\n"
+"exact h\n"
+"```"
+msgstr ""
+
+#: Game.Levels.Implication.L03_apply
+msgid "The `apply` tactic."
+msgstr ""
+
+#: Game.Levels.Implication.L03_apply
+msgid "## Summary\n"
+"\n"
+"If `t : P → Q` is a proof that $P \\implies Q$, and `h : P` is a proof of `P`,\n"
+"then `apply t at h` will change `h` to a proof of `Q`. The idea is that if\n"
+"you know `P` is true, then you can deduce from `t` that `Q` is true.\n"
+"\n"
+"If the *goal* is `Q`, then `apply t` will \\\"argue backwards\\\" and change the\n"
+"goal to `P`. The idea here is that if you want to prove `Q`, then by `t`\n"
+"it suffices to prove `P`, so you can reduce the goal to proving `P`.\n"
+"\n"
+"### Example:\n"
+"\n"
+"`succ_inj x y` is a proof that `succ x = succ y → x = y`.\n"
+"\n"
+"So if you have a hypothesis `h : succ (a + 37) = succ (b + 42)`\n"
+"then `apply succ_inj at h` will change `h` to `a + 37 = b + 42`.\n"
+"You could write `apply succ_inj (a + 37) (b + 42) at h`\n"
+"but Lean is smart enough to figure out the inputs to `succ_inj`.\n"
+"\n"
+"### Example\n"
+"\n"
+"If the goal is `a * b = 7`, then `apply succ_inj` will turn the\n"
+"goal into `succ (a * b) = succ 7`."
+msgstr ""
+
+#: Game.Levels.Implication.L03_apply
+msgid "In this level one of our hypotheses is an *implication*. We can use this\n"
+"hypothesis with the `apply` tactic."
+msgstr ""
+
+#: Game.Levels.Implication.L03_apply
+msgid "If $x=37$ and we know that $x=37\\implies y=42$ then we can deduce $y=42$."
+msgstr ""
+
+#: Game.Levels.Implication.L03_apply
+msgid "Start with `apply h2 at h1`. This will change `h1` to `y = 42`."
+msgstr ""
+
+#: Game.Levels.Implication.L03_apply
+msgid "Now finish using the `exact` tactic."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "succ_inj : the successor function is injective"
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "If `a` and `b` are numbers, then `succ_inj a b` is a proof\n"
+"that `succ a = succ b` implies `a = b`. Click on this theorem in the *Peano*\n"
+"tab for more information.\n"
+"\n"
+"Peano had this theorem as an axiom, but in Algorithm World\n"
+"we will show how to prove it in Lean. Right now let's just assume it,\n"
+"and let's prove $x+1=4 \\implies x=3$ using it. Again, we will proceed\n"
+"by manipulating our hypothesis until it becomes the goal. I will\n"
+"walk you through this level."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "# Statement\n"
+"\n"
+"If $a$ and $b$ are numbers, then\n"
+"`succ_inj a b` is the proof that\n"
+"$ (\\operatorname{succ}(a) = \\operatorname{succ}(b)) \\implies a=b$.\n"
+"\n"
+"## More technical details\n"
+"\n"
+"There are other ways to think about `succ_inj`.\n"
+"\n"
+"You can think about `succ_inj` itself as a function which takes two\n"
+"numbers $$a$$ and $$b$$ as input, and outputs a proof of\n"
+"$ ( \\operatorname{succ}(a) = \\operatorname{succ}(b)) \\implies a=b$.\n"
+"\n"
+"You can think of `succ_inj` itself as a proof; it is the proof\n"
+"that `succ` is an injective function. In other words,\n"
+"`succ_inj` is a proof of\n"
+"$\\forall a, b \\in  \\mathbb{N}, ( \\operatorname{succ}(a) = \\operatorname{succ}(b)) \\implies a=b$.\n"
+"\n"
+"`succ_inj` was postulated as an axiom by Peano, but\n"
+"in Lean it can be proved using `pred`, a mathematically\n"
+"pathological function."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "If $x+1=4$ then $x=3$."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "Let's first get `h` into the form `succ x = succ 3` so we can\n"
+"apply `succ_inj`. First execute `rw [four_eq_succ_three] at h`\n"
+"to change the 4 on the right hand side."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "Now rewrite `succ_eq_add_one` backwards at `h`\n"
+"to get the right hand side."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "You can put a `←` in front of any theorem provided to `rw` to rewrite\n"
+"the other way around. Look at the docs for `rw` for an explanation. Type `←` with `\\l`."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "Concretely: `rw [← succ_eq_add_one] at h`."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "Now let's `apply` our new theorem. Execute `apply succ_inj at h`\n"
+"to change `h` to a proof of `x = 3`."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "Now finish in one line."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "And now we've deduced what we wanted to prove: the goal is one of our assumptions.\n"
+"Finish the level with `exact h`."
+msgstr ""
+
+#: Game.Levels.Implication.L04_succinj_I
+msgid "In the next level, we'll do the same proof but backwards."
+msgstr ""
+
+#: Game.Levels.Implication.L05_succinj_II
+msgid "Arguing backwards"
+msgstr ""
+
+#: Game.Levels.Implication.L05_succinj_II
+msgid "In the last level, we manipulated the hypothesis `x + 1 = 4`\n"
+"  until it became the goal `x = 3`. In this level we'll manipulate\n"
+"  the goal until it becomes our hypothesis! In other words, we\n"
+"  will \"argue backwards\". The `apply` tactic can do this too.\n"
+"  Again I will walk you through this one (assuming you're in\n"
+"  command line mode)."
+msgstr ""
+
+#: Game.Levels.Implication.L05_succinj_II
+msgid "If $x+1=4$ then $x=3$."
+msgstr ""
+
+#: Game.Levels.Implication.L05_succinj_II
+msgid "Start with `apply succ_inj` to apply `succ_inj` to the *goal*."
+msgstr ""
+
+#: Game.Levels.Implication.L05_succinj_II
+msgid "Applying a proof of $P\\implies Q$ to the *goal* changes $Q$ to $P$.\n"
+"Now try `rw [succ_eq_add_one]` to make the goal more like the hypothesis."
+msgstr ""
+
+#: Game.Levels.Implication.L05_succinj_II
+msgid "Now rewrite `four_eq_succ_three` backwards to make the goal\n"
+"equal to the hypothesis."
+msgstr ""
+
+#: Game.Levels.Implication.L05_succinj_II
+msgid "You can now finish with `exact h`."
+msgstr ""
+
+#: Game.Levels.Implication.L05_succinj_II
+msgid "Many people find `apply t at h` easy, but some find `apply t` confusing.\n"
+"If you find it confusing, then just argue forwards.\n"
+"\n"
+"You can read more about the `apply` tactic in its documentation, which you can view by\n"
+"clicking on the tactic in the list on the right."
+msgstr ""
+
+#: Game.Levels.Implication.L06_intro_I
+msgid "intro"
+msgstr ""
+
+#: Game.Levels.Implication.L06_intro_I
+msgid "## Summary\n"
+"\n"
+"If the goal is `P → Q`, then `intro h` will introduce `h : P` as a hypothesis,\n"
+"and change the goal to `Q`. Mathematically, it says that to prove $P \\implies Q$,\n"
+"we can assume $P$ and then prove $Q$.\n"
+"\n"
+"### Example:\n"
+"\n"
+"If your goal is `x + 1 = y + 1 → x = y` (the way Lean writes $x+1=y+1 \\implies x=y$)\n"
+"then `intro h` will give you a hypothesis $x+1=y+1$ named `h`, and the goal\n"
+"will change to $x=y$."
+msgstr ""
+
+#: Game.Levels.Implication.L06_intro_I
+msgid "We have seen how to `apply` theorems and assumptions\n"
+"of the form `P → Q`. But what if our *goal* is of the form `P → Q`?\n"
+"To prove this goal, we need to know how to say \"let's assume `P` and deduce `Q`\"\n"
+"in Lean. We do this with the `intro` tactic."
+msgstr ""
+
+#: Game.Levels.Implication.L06_intro_I
+msgid "$x=37\\implies x=37$."
+msgstr ""
+
+#: Game.Levels.Implication.L06_intro_I
+msgid "Start with `intro h` to assume the hypothesis and call its proof `h`."
+msgstr ""
+
+#: Game.Levels.Implication.L06_intro_I
+msgid "Now `exact h` finishes the job."
+msgstr ""
+
+#: Game.Levels.Implication.L07_intro_II
+msgid "intro practice"
+msgstr ""
+
+#: Game.Levels.Implication.L07_intro_II
+msgid "Let's see if you can use the tactics we've learnt to prove $x+1=y+1\\implies x=y$.\n"
+"Try this one by yourself; if you need help then click on \"Show more help!\"."
+msgstr ""
+
+#: Game.Levels.Implication.L07_intro_II
+msgid "$x+1=y+1 \\implies x=y$."
+msgstr ""
+
+#: Game.Levels.Implication.L07_intro_II
+msgid "Start with `intro h` to assume the hypothesis."
+msgstr ""
+
+#: Game.Levels.Implication.L07_intro_II
+msgid "Now `repeat rw [← succ_eq_add_one] at h` is the quickest way to\n"
+"change `succ x = succ y`."
+msgstr ""
+
+#: Game.Levels.Implication.L07_intro_II
+msgid "Now `apply succ_inj at h` to cancel the `succ`s."
+msgstr ""
+
+#: Game.Levels.Implication.L07_intro_II
+msgid "Now `rw [h]` then `rfl` works, but `exact h` is quicker."
+msgstr ""
+
+#: Game.Levels.Implication.L07_intro_II
+msgid "Here's a completely backwards proof:\n"
+"```\n"
+"intro h\n"
+"apply succ_inj\n"
+"repeat rw [succ_eq_add_one]\n"
+"exact h\n"
+"```"
+msgstr ""
+
+#: Game.Levels.Implication.L08_ne
+msgid "≠"
+msgstr ""
+
+#: Game.Levels.Implication.L08_ne
+msgid "We still can't prove `2 + 2 ≠ 5` because we have not talked about the\n"
+"definition of `≠`. In Lean, `a ≠ b` is *notation* for `a = b → False`.\n"
+"Here `False` is a generic false proposition, and `→` is Lean's notation\n"
+"for \"implies\". In logic we learn\n"
+"that `True → False` is false, but `False → False` is true. Hence\n"
+"`X → False` is the logical opposite of `X`.\n"
+"\n"
+"Even though `a ≠ b` does not look like an implication,\n"
+"you should treat it as an implication. The next two levels will show you how.\n"
+"\n"
+"`False` is a goal which you cannot deduce from a consistent set of assumptions!\n"
+"So if your goal is `False` then you had better hope that your hypotheses\n"
+"are contradictory, which they are in this level."
+msgstr ""
+
+#: Game.Levels.Implication.L08_ne
+msgid "If $x=y$ and $x \\neq y$ then we can deduce a contradiction."
+msgstr ""
+
+#: Game.Levels.Implication.L08_ne
+msgid "Remember that `h2` is a proof of `x = y → False`. Try\n"
+"`apply`ing `h2` either `at h1` or directly to the goal."
+msgstr ""
+
+#: Game.Levels.Implication.L08_ne
+msgid "`a ≠ b` is *notation* for `(a = b) → False`.\n"
+"\n"
+"The reason this is mathematically\n"
+"valid is that if `P` is a true-false statement then `P → False`\n"
+"is the logical opposite of `P`. Indeed `True → False` is false,\n"
+"and `False → False` is true!\n"
+"\n"
+"The upshot of this is that you can treat `a ≠ b` in exactly\n"
+"the same way as you treat any implication `P → Q`. For example,\n"
+"if your *goal* is of the form `a ≠ b` then you can make progress\n"
+"with `intro h`, and if you have a hypothesis `h` of the\n"
+"form `a ≠ b` then you can `apply h at h1` if `h1` is a proof\n"
+"of `a = b`."
+msgstr ""
+
+#: Game.Levels.Implication.L08_ne
+msgid "Remember, `x ≠ y` is *notation* for `x = y → False`."
+msgstr ""
+
+#: Game.Levels.Implication.L09_zeronesucc
+msgid "zero_ne_succ"
+msgstr ""
+
+#: Game.Levels.Implication.L09_zeronesucc
+msgid "`zero_ne_succ n` is the proof that `0 ≠ succ n`.\n"
+"\n"
+"In Lean, `a ≠ b` is *defined to mean* `a = b → False`. Hence\n"
+"`zero_ne_succ n` is really a proof of `0 = succ n → False`.\n"
+"Here `False` is a generic false statement. This means that\n"
+"you can `apply zero_ne_succ at h` if `h` is a proof of `0 = succ n`."
+msgstr ""
+
+#: Game.Levels.Implication.L09_zeronesucc
+msgid "As warm-up for `2 + 2 ≠ 5` let's prove `0 ≠ 1`. To do this we need to\n"
+"introduce Peano's last axiom `zero_ne_succ n`, a proof that `0 ≠ succ n`.\n"
+"To learn about this result, click on it in the list of lemmas on the right."
+msgstr ""
+
+#: Game.Levels.Implication.L09_zeronesucc
+msgid "`zero_ne_one` is a proof of `0 ≠ 1`."
+msgstr ""
+
+#: Game.Levels.Implication.L09_zeronesucc
+msgid "$0\\neq1$."
+msgstr ""
+
+#: Game.Levels.Implication.L09_zeronesucc
+msgid "Start with `intro h`."
+msgstr ""
+
+#: Game.Levels.Implication.L09_zeronesucc
+msgid "Now change `1` to `succ 0` in `h`."
+msgstr ""
+
+#: Game.Levels.Implication.L09_zeronesucc
+msgid "Now you can `apply zero_ne_succ at h`."
+msgstr ""
+
+#: Game.Levels.Implication.L09_zeronesucc
+msgid "Nice!"
+msgstr ""
+
+#: Game.Levels.Implication.L10_zeroneone
+msgid "1 ≠ 0"
+msgstr ""
+
+#: Game.Levels.Implication.L10_zeroneone
+msgid "We know `zero_ne_succ n` is a proof of `0 = succ n → False` -- but what\n"
+"if we have a hypothesis `succ n = 0`? It's the wrong way around!\n"
+"\n"
+"The `symm` tactic changes a goal `x = y` to `y = x`, and a goal `x ≠ y`\n"
+"to `y ≠ x`. And `symm at h`\n"
+"does the same for a hypothesis `h`. We've proved $0 \\neq 1$ and called\n"
+"the proof `zero_ne_one`; now try proving $1 \\neq 0$."
+msgstr ""
+
+#: Game.Levels.Implication.L10_zeroneone
+msgid "## Summary\n"
+"\n"
+"The `symm` tactic will change a goal or hypothesis of\n"
+"the form `X = Y` to `Y = X`. It will also work on `X ≠ Y`\n"
+"and on `X ↔ Y`.\n"
+"\n"
+"### Example\n"
+"\n"
+"If the goal is `2 + 2 = 4` then `symm` will change it to `4 = 2 + 2`.\n"
+"\n"
+"### Example\n"
+"\n"
+"If `h : 2 + 2 ≠ 5` then `symm at h` will change `h` to `5 ≠ 2 + 2`."
+msgstr ""
+
+#: Game.Levels.Implication.L10_zeroneone
+msgid "`one_ne_zero` is a proof that `1 ≠ 0`."
+msgstr ""
+
+#: Game.Levels.Implication.L10_zeroneone
+msgid "$1\\neq0$."
+msgstr ""
+
+#: Game.Levels.Implication.L10_zeroneone
+msgid "What do you think of this two-liner:\n"
+"```\n"
+"symm\n"
+"exact zero_ne_one\n"
+"```\n"
+"\n"
+"`exact` doesn't just take hypotheses, it will eat any proof which exists\n"
+"in the system."
+msgstr ""
+
+#: Game.Levels.Implication.L11_neV
+msgid "2 + 2 ≠ 5"
+msgstr ""
+
+#: Game.Levels.Implication.L11_neV
+msgid "2 + 2 ≠ 5 is boring to prove in full, given only the tools we have currently.\n"
+"To make it a bit less painful, I have unfolded all of the numerals for you.\n"
+"See if you can use `zero_ne_succ` and `succ_inj` to prove this."
+msgstr ""
+
+#: Game.Levels.Implication.L11_neV
+msgid "$2+2≠5$."
+msgstr ""
+
+#: Game.Levels.Implication.L11_neV
+msgid "Here's my proof:\n"
+"```\n"
+"intro h\n"
+"rw [add_succ, add_succ, add_zero] at h\n"
+"repeat apply succ_inj at h\n"
+"apply zero_ne_succ at h\n"
+"exact h\n"
+"```\n"
+"\n"
+"Even though Lean is a theorem prover, right now it's pretty clear that we have not\n"
+"developed enough material to make it an adequate calculator. In Algorithm\n"
+"World, a more computer-sciency world, we will develop machinery which makes\n"
+"questions like this much easier, and goals like $20 + 20 ≠ 41$ feasible.\n"
+"Alternatively you can do more mathematics in Advanced Addition World, where we prove\n"
+"the lemmas needed to get a working theory of inequalities. Click \"Leave World\" and\n"
+"decide your route."
+msgstr ""
+
+#: Game.Levels.Implication
+msgid "Implication World"
+msgstr ""
+
+#: Game.Levels.Implication
+msgid "We've proved that $2+2=4$; in Implication World we'll learn\n"
+"how to prove $2+2\\neq 5$.\n"
+"\n"
+"In Addition World we proved *equalities* like $x + y = y + x$.\n"
+"In this second tutorial world we'll learn some new tactics,\n"
+"enabling us to prove *implications*\n"
+"like $x+1=4 \\implies x=3.$\n"
+"\n"
+"We'll also learn two new fundamental facts about\n"
+"natural numbers, which Peano introduced as axioms.\n"
+"\n"
+"Click on \"Start\" to proceed."
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "zero_pow_zero"
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "Mathematicians sometimes debate what `0 ^ 0` is;\n"
+"the answer depends, of course, on your definitions. In this\n"
+"game, `0 ^ 0 = 1`. See if you can prove it.\n"
+"\n"
+"Check out the *Pow* tab in your list of theorems\n"
+"to see the new proofs which are available."
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "`Pow a b`, with notation `a ^ b`, is the usual\n"
+"  exponentiation of natural numbers. Internally it is\n"
+"  defined via two axioms:\n"
+"\n"
+"  * `pow_zero a : a ^ 0 = 1`\n"
+"\n"
+"  * `pow_succ a b : a ^ succ b = a ^ b * a`\n"
+"\n"
+"Note in particular that `0 ^ 0 = 1`."
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "`pow_zero a : a ^ 0 = 1` is one of the two axioms\n"
+"defining exponentiation in this game."
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "Mathematicians sometimes argue that `0 ^ 0 = 0` is also\n"
+"a good convention. But it is not a good convention in this\n"
+"game; all the later levels come out beautifully with the\n"
+"convention that `0 ^ 0 = 1`."
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "$0 ^ 0 = 1$"
+msgstr ""
+
+#: Game.Levels.Power.L02_zeropown_II
+msgid "zero_pow_succ"
+msgstr ""
+
+#: Game.Levels.Power.L02_zeropown_II
+msgid "We've just seen that `0 ^ 0 = 1`, but if `n`\n"
+"is a successor, then `0 ^ n = 0`. We prove that here."
+msgstr ""
+
+#: Game.Levels.Power.L02_zeropown_II
+msgid "`pow_succ a b : a ^ (succ b) = a ^ b * a` is one of the\n"
+"two axioms defining exponentiation in this game."
+msgstr ""
+
+#: Game.Levels.Power.L02_zeropown_II
+msgid "Although $0^0=1$ in this game, $0^n=0$ if $n>0$, i.e., if\n"
+"$n$ is a successor."
+msgstr ""
+
+#: Game.Levels.Power.L02_zeropown_II
+msgid "For all numbers $m$, $0 ^{\\operatorname{succ} (m)} = 0$."
+msgstr ""
+
+#: Game.Levels.Power.L03_powone
+msgid "pow_one"
+msgstr ""
+
+#: Game.Levels.Power.L03_powone
+msgid "`pow_one a` says that `a ^ 1 = a`.\n"
+"\n"
+"Note that this is not quite true by definition: `a ^ 1` is\n"
+"defined to be `a ^ 0 * a` so it's `1 * a`, and to prove\n"
+"that this is equal to `a` you need to use induction somewhere."
+msgstr ""
+
+#: Game.Levels.Power.L03_powone
+msgid "For all naturals $a$, $a ^ 1 = a$."
+msgstr ""
+
+#: Game.Levels.Power.L04_onepow
+msgid "one_pow"
+msgstr ""
+
+#: Game.Levels.Power.L04_onepow
+msgid "`one_pow n` is a proof that $1^n=1$."
+msgstr ""
+
+#: Game.Levels.Power.L04_onepow
+msgid "For all naturals $m$, $1 ^ m = 1$."
+msgstr ""
+
+#: Game.Levels.Power.L05_powtwo
+msgid "pow_two"
+msgstr ""
+
+#: Game.Levels.Power.L05_powtwo
+msgid "Note: this lemma will be useful for the final boss!"
+msgstr ""
+
+#: Game.Levels.Power.L05_powtwo
+msgid "`pow_two a` says that `a ^ 2 = a * a`."
+msgstr ""
+
+#: Game.Levels.Power.L05_powtwo
+msgid "For all naturals $a$, $a ^ 2 = a \\times a$."
+msgstr ""
+
+#: Game.Levels.Power.L06_powadd
+msgid "pow_add"
+msgstr ""
+
+#: Game.Levels.Power.L06_powadd
+msgid "Let's now begin our approach to the final boss,\n"
+"by proving some more subtle facts about powers."
+msgstr ""
+
+#: Game.Levels.Power.L06_powadd
+msgid "`pow_add a m n` is a proof that $a^{m+n}=a^ma^n.$"
+msgstr ""
+
+#: Game.Levels.Power.L06_powadd
+msgid "For all naturals $a$, $m$, $n$, we have $a^{m + n} = a ^ m  a ^ n$."
+msgstr ""
+
+#: Game.Levels.Power.L07_mulpow
+msgid "mul_pow"
+msgstr ""
+
+#: Game.Levels.Power.L07_mulpow
+msgid "The music gets ever more dramatic, as we explore\n"
+"the interplay between exponentiation and multiplication.\n"
+"\n"
+"If you're having trouble exchanging the right `a * b`\n"
+"because `rw [mul_comm]` swaps the wrong multiplication,\n"
+"then read the documentation of `rw` for tips on how to fix this."
+msgstr ""
+
+#: Game.Levels.Power.L07_mulpow
+msgid "`mul_pow a b n` is a proof that $(ab)^n=a^nb^n.$"
+msgstr ""
+
+#: Game.Levels.Power.L07_mulpow
+msgid "For all naturals $a$, $b$, $n$, we have $(ab) ^ n = a ^ nb ^ n$."
+msgstr ""
+
+#: Game.Levels.Power.L08_powpow
+msgid "pow_pow"
+msgstr ""
+
+#: Game.Levels.Power.L08_powpow
+msgid "One of the best named levels in the game, a savage `pow_pow`\n"
+"sub-boss appears as the music reaches a frenzy. What\n"
+"else could there be to prove about powers after this?"
+msgstr ""
+
+#: Game.Levels.Power.L08_powpow
+msgid "`pow_pow a m n` is a proof that $(a^m)^n=a^{mn}.$"
+msgstr ""
+
+#: Game.Levels.Power.L08_powpow
+msgid "For all naturals $a$, $m$, $n$, we have $(a ^ m) ^ n = a ^ {mn}$."
+msgstr ""
+
+#: Game.Levels.Power.L08_powpow
+msgid "The music dies down. Is that it?\n"
+"\n"
+"Course it isn't, you can\n"
+"clearly see that there are two levels left.\n"
+"\n"
+"A passing mathematician says that mathematicians don't have a name\n"
+"for the structure you just constructed. You feel cheated.\n"
+"\n"
+"Suddenly the music starts up again. This really is the final boss."
+msgstr ""
+
+#: Game.Levels.Power.L09_addsq
+msgid "add_sq"
+msgstr ""
+
+#: Game.Levels.Power.L09_addsq
+msgid "[final boss music]"
+msgstr ""
+
+#: Game.Levels.Power.L09_addsq
+msgid "`add_sq a b` is the statement that $(a+b)^2=a^2+b^2+2ab.$"
+msgstr ""
+
+#: Game.Levels.Power.L09_addsq
+msgid "For all numbers $a$ and $b$, we have\n"
+"$$(a+b)^2=a^2+b^2+2ab.$$"
+msgstr ""
+
+#: Game.Levels.Power.L09_addsq
+msgid "It's all over! You have proved a theorem which has tripped up\n"
+"schoolkids for generations (some of them think $(a+b)^2=a^2+b^2$:\n"
+"this is \"the freshman's dream\").\n"
+"\n"
+"How many rewrites did you use? I can do it in 12.\n"
+"\n"
+"But wait! This boss is stirring...and mutating into a second more powerful form!"
+msgstr ""
+
+#: Game.Levels.Power.L10_FLT
+msgid "Fermat's Last Theorem"
+msgstr ""
+
+#: Game.Levels.Power.L10_FLT
+msgid "We now have enough to state a mathematically accurate, but slightly\n"
+"clunky, version of Fermat's Last Theorem.\n"
+"\n"
+"Fermat's Last Theorem states that if $x,y,z>0$ and $m \\geq 3$ then $x^m+y^m\\not =z^m$.\n"
+"If you didn't do inequality world yet then we can't talk about $m \\geq 3$,\n"
+"so we have to resort to the hack of using `n + 3` for `m`,\n"
+"which guarantees it's big enough. Similarly instead of `x > 0` we\n"
+"use `a + 1`.\n"
+"\n"
+"This level looks superficially like other levels we have seen,\n"
+"but the shortest solution known to humans would translate into\n"
+"many millions of lines of Lean code. The author of this game,\n"
+"Kevin Buzzard, is working on translating the proof by Wiles\n"
+"and Taylor into Lean, although this task will take many years.\n"
+"\n"
+"## CONGRATULATIONS!\n"
+"\n"
+"You've finished the main quest of the natural number game!\n"
+"If you would like to learn more about how to use Lean to\n"
+"prove theorems in mathematics, then take a look\n"
+"at [Mathematics In Lean](https://leanprover-community.github.io/mathematics_in_lean/),\n"
+"an interactive textbook which you can read in your browser,\n"
+"and which explains how to work with many more mathematical concepts in Lean."
+msgstr ""
+
+#: Game.Levels.Power.L10_FLT
+msgid "`xyzzy` is an ancient magic spell, believed to be the origin of the\n"
+"modern word `sorry`. The game won't complain - or notice - if you\n"
+"prove anything with `xyzzy`."
+msgstr ""
+
+#: Game.Levels.Power.L10_FLT
+msgid "For all naturals $a$ $b$ $c$ and $n$, we have\n"
+"$$(a+1)^{n+3}+(b+1)^{n+3}\\not=(c+1)^{n+3}.$$"
+msgstr ""
+
+#: Game.Levels.Power.L10_FLT
+msgid "Congratulations! You have proved Fermat's Last Theorem!\n"
+"\n"
+"Either that, or you used magic..."
+msgstr ""
+
+#: Game.Levels.Power
+msgid "Power World"
+msgstr ""
+
+#: Game.Levels.Power
+msgid "This world introduces exponentiation. If you want to define `37 ^ n`\n"
+"then, as always, you will need to know what `37 ^ 0` is, and\n"
+"what `37 ^ (succ d)` is, given only `37 ^ d`.\n"
+"\n"
+"You can probably guess the names of the general theorems:\n"
+"\n"
+"  * `pow_zero (a : ℕ) : a ^ 0 = 1`\n"
+"  * `pow_succ (a b : ℕ) : a ^ succ b = a ^ b * a`\n"
+"\n"
+"Using only these, can you get past the final boss level?\n"
+"\n"
+"The levels in this world were designed by Sian Carey, a UROP student\n"
+"at Imperial College London, funded by a Mary Lister McCammon Fellowship\n"
+"in the summer of 2019. Thanks to Sian and also thanks to Imperial\n"
+"College for funding her."
+msgstr ""
+
 #: Game
 msgid "Intro to Lean"
 msgstr ""
@@ -1199,8 +2000,13 @@ msgstr ""
 msgid "# An Intro to Lean by the University of Hyperion\n"
 "\n"
 "## Content\n"
-"* Basics: Proving the simplest theorem, $1 + 1 = 2$\n"
-"* Addition: Defining Addition"
+"* Basics: Proving the simplest theorem, $1 + 1 = 2$.\n"
+"### Mathematics\n"
+"* Addition: Defining Addition.\n"
+"* Multiplication: Defining Multiplication.\n"
+"* Power: Defining Exponentiation to (sorta) prove FLT.\n"
+"### Logic\n"
+"* Implication: Proving the converse, $2 + 2 ≠ 5$."
 msgstr ""
 
 #: Game

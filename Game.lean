@@ -2,6 +2,7 @@ import Game.Levels.Basics
 import Game.Levels.Addition
 import Game.Levels.Multiplication
 import Game.Levels.Implication
+import Game.Levels.Power
 
 -- Here's what we'll put on the title screen
 Title "Intro to Lean"
@@ -10,8 +11,13 @@ Introduction
 # An Intro to Lean by the University of Hyperion
 
 ## Content
-* Basics: Proving the simplest theorem, $1 + 1 = 2$
-* Addition: Defining Addition
+* Basics: Proving the simplest theorem, $1 + 1 = 2$.
+### Mathematics
+* Addition: Defining Addition.
+* Multiplication: Defining Multiplication.
+* Power: Defining Exponentiation to (sorta) prove FLT.
+### Logic
+* Implication: Proving the converse, $2 + 2 ≠ 5$.
 "
 
 Info "
