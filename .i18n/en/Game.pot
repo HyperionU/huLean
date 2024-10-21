@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Mon Oct 21 16:22:34 2024\n"
+"POT-Creation-Date: Mon Oct 21 16:51:24 2024\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -1990,6 +1990,390 @@ msgid "This world introduces exponentiation. If you want to define `37 ^ n`\n"
 "at Imperial College London, funded by a Mary Lister McCammon Fellowship\n"
 "in the summer of 2019. Thanks to Sian and also thanks to Imperial\n"
 "College for funding her."
+msgstr ""
+
+#: Game.Levels.Algorithm.L01_ladcomm
+msgid "add_left_comm"
+msgstr ""
+
+#: Game.Levels.Algorithm.L01_ladcomm
+msgid "`add_left_comm a b c` is a proof that `a + (b + c) = b + (a + c)`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L01_ladcomm
+msgid "Having to rearrange variables manually using commutativity and\n"
+"associativity is very tedious. We start by reminding you of this. `add_left_comm`\n"
+"is a key component in the first algorithm which we'll explain, but we need\n"
+"to prove it manually.\n"
+"\n"
+"Remember that you can do precision commutativity rewriting\n"
+"with things like `rw [add_comm b c]`. And remember that\n"
+"`a + b + c` means `(a + b) + c`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L01_ladcomm
+msgid "If $a, b, c$ are numbers, then $a+(b+c)=b+(a+c)$."
+msgstr ""
+
+#: Game.Levels.Algorithm.L02_addalgo_I
+msgid "making life easier"
+msgstr ""
+
+#: Game.Levels.Algorithm.L02_addalgo_I
+msgid "In some later worlds, we're going to see some much nastier levels,\n"
+"like `(a + a + 1) + (b + b + 1) = (a + b + 1) + (a + b + 1)`.\n"
+"Brackets need to be moved around, and variables need to be swapped.\n"
+"\n"
+"In this level, `(a + b) + (c + d) = ((a + c) + d) + b`,\n"
+"let's forget about the brackets and just think about\n"
+"the variable order.\n"
+"To turn `a+b+c+d` into `a+c+d+b` we need to swap `b` and `c`,\n"
+"and then swap `b` and `d`. But this is easier than you\n"
+"think with `add_left_comm`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L02_addalgo_I
+msgid "If $a, b$, $c$ and $d$ are numbers, we have\n"
+"$(a + b) + (c + d) = ((a + c) + d) + b.$"
+msgstr ""
+
+#: Game.Levels.Algorithm.L02_addalgo_I
+msgid "Start with `repeat rw [add_assoc]` to push all the brackets to the right."
+msgstr ""
+
+#: Game.Levels.Algorithm.L02_addalgo_I
+msgid "Now use `rw [add_left_comm b c]` to switch `b` and `c` on the left\n"
+"hand side."
+msgstr ""
+
+#: Game.Levels.Algorithm.L02_addalgo_I
+msgid "Finally use a targetted `add_comm` to switch `b` and `d`"
+msgstr ""
+
+#: Game.Levels.Algorithm.L02_addalgo_I
+msgid "`rw [add_comm b d]`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L02_addalgo_I
+msgid "So that's the algorithm: now let's use automation to perform it\n"
+"automatically."
+msgstr ""
+
+#: Game.Levels.Algorithm.L03_addalgo_II
+msgid "making life simple"
+msgstr ""
+
+#: Game.Levels.Algorithm.L03_addalgo_II
+msgid "# Overview\n"
+"\n"
+"Lean's simplifier, `simp`, will rewrite every lemma\n"
+"tagged with `simp` and every lemma fed to it by the user, as much as it can.\n"
+"Furthermore, it will attempt to order variables into an internal order if fed\n"
+"lemmas such as `add_comm`, so that it does not go into an infinite loop."
+msgstr ""
+
+#: Game.Levels.Algorithm.L03_addalgo_II
+msgid "Lean's simplifier, `simp`, is \"`rw` on steroids\". It will rewrite every lemma\n"
+"tagged with `simp` and every lemma fed to it by the user, as much as it can.\n"
+"\n"
+"This level is not a level which you want to solve by hand.\n"
+"Get the simplifier to solve it for you."
+msgstr ""
+
+#: Game.Levels.Algorithm.L03_addalgo_II
+msgid "If $a, b,\\ldots h$ are arbitrary natural numbers, we have\n"
+"$(d + f) + (h + (a + c)) + (g + e + b) = a + b + c + d + e + f + g + h$."
+msgstr ""
+
+#: Game.Levels.Algorithm.L03_addalgo_II
+msgid "Solve this level in one line with `simp only [add_assoc, add_left_comm, add_comm]`"
+msgstr ""
+
+#: Game.Levels.Algorithm.L03_addalgo_II
+msgid "Let's now make our own tactic to do this."
+msgstr ""
+
+#: Game.Levels.Algorithm.L04_addalgo_III
+msgid "the simplest approach"
+msgstr ""
+
+#: Game.Levels.Algorithm.L04_addalgo_III
+msgid "# Overview\n"
+"\n"
+"Our home-made tactic `simp_add` will solve arbitrary goals of\n"
+"the form `a + (b + c) + (d + e) = e + (d + (c + b)) + a`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L04_addalgo_III
+msgid "You can make your own tactics in Lean.\n"
+"This code here\n"
+"```\n"
+"macro \"simp_add\" : tactic => `(tactic|(\n"
+"  simp only [add_assoc, add_left_comm, add_comm]))\n"
+"```\n"
+"was used to create a new tactic `simp_add`, which runs\n"
+"`simp only [add_assoc, add_left_comm, add_comm]`.\n"
+"Try running `simp_add` to solve this level!"
+msgstr ""
+
+#: Game.Levels.Algorithm.L04_addalgo_III
+msgid "If $a, b,\\ldots h$ are arbitrary natural numbers, we have\n"
+"$(d + f) + (h + (a + c)) + (g + e + b) = a + b + c + d + e + f + g + h$."
+msgstr ""
+
+#: Game.Levels.Algorithm.L04_addalgo_III
+msgid "Let's now move on to a more efficient approach to questions\n"
+"involving numerals, such as `20 + 20 = 40`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L05_pred
+msgid "pred"
+msgstr ""
+
+#: Game.Levels.Algorithm.L05_pred
+msgid "We now start work on an algorithm to do addition more efficiently. Recall that\n"
+"we defined addition by recursion, saying what it did on `0` and successors.\n"
+"It is an axiom of Lean that recursion is a valid\n"
+"way to define functions from types such as the naturals.\n"
+"\n"
+"Let's define a new function `pred` from the naturals to the naturals, which\n"
+"attempts to subtract 1 from the input. The definition is this:\n"
+"\n"
+"```\n"
+"pred 0 := 37\n"
+"pred (succ n) := n\n"
+"```\n"
+"\n"
+"We cannot subtract one from 0, so we just return a junk value. As well as this\n"
+"definition, we also create a new lemma `pred_succ`, which says that `pred (succ n) = n`.\n"
+"Let's use this lemma to prove `succ_inj`, the theorem which\n"
+"Peano assumed as an axiom and which we have already used extensively without justification."
+msgstr ""
+
+#: Game.Levels.Algorithm.L05_pred
+msgid "`pred_succ n` is a proof of `pred (succ n) = n`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L05_pred
+msgid "If $\\operatorname{succ}(a)=\\operatorname{succ}(b)$ then $a=b$."
+msgstr ""
+
+#: Game.Levels.Algorithm.L05_pred
+msgid "Start with `rw [← pred_succ a]` and take it from there."
+msgstr ""
+
+#: Game.Levels.Algorithm.L05_pred
+msgid "Nice! You've proved `succ_inj`!\n"
+"Let's now prove Peano's other axiom, that successors can't be $0$."
+msgstr ""
+
+#: Game.Levels.Algorithm.L06_iszero
+msgid "is_zero"
+msgstr ""
+
+#: Game.Levels.Algorithm.L06_iszero
+msgid "We define a function `is_zero` thus:\n"
+"\n"
+"```\n"
+"is_zero 0 := True\n"
+"is_zero (succ n) := False\n"
+"```\n"
+"\n"
+"We also create two lemmas, `is_zero_zero` and `is_zero_succ n`, saying that `is_zero 0 = True`\n"
+"and `is_zero (succ n) = False`. Let's use these lemmas to prove `succ_ne_zero`, Peano's\n"
+"Last Axiom. Actually, we have been using `zero_ne_succ` before, but it's handy to have\n"
+"this opposite version too, which can be proved in the same way. Note: you can\n"
+"cheat here by using `zero_ne_succ` but the point of this world is to show\n"
+"you how to *prove* results like that.\n"
+"\n"
+"If you can turn your goal into `True`, then the `trivial` tactic will solve it."
+msgstr ""
+
+#: Game.Levels.Algorithm.L06_iszero
+msgid "`is_zero_zero` is a proof of `is_zero 0 = True`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L06_iszero
+msgid "`is_zero_succ a` is a proof of `is_zero (succ a) = False`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L06_iszero
+msgid "`succ_ne_zero a` is a proof of `succ a ≠ 0`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L06_iszero
+msgid "# Summary\n"
+"\n"
+"`trivial` will solve the goal `True`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L06_iszero
+msgid "$\\operatorname{succ}(a) \\neq 0$."
+msgstr ""
+
+#: Game.Levels.Algorithm.L06_iszero
+msgid "Start with `intro h` (remembering that `X ≠ Y` is just notation\n"
+"for `X = Y → False`)."
+msgstr ""
+
+#: Game.Levels.Algorithm.L06_iszero
+msgid "We're going to change that `False` into `True`. Start by changing it into\n"
+"`is_zero (succ a)` by executing `rw [← is_zero_succ a]`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L06_iszero
+msgid "See if you can take it from here. Look at the new lemmas and tactic\n"
+"available on the right."
+msgstr ""
+
+#: Game.Levels.Algorithm.L07_succnesucc
+msgid "An algorithm for equality"
+msgstr ""
+
+#: Game.Levels.Algorithm.L07_succnesucc
+msgid "Here we begin to\n"
+"develop an algorithm which, given two naturals `a` and `b`, returns the answer\n"
+"to \"does `a = b`?\"\n"
+"\n"
+"Here is the algorithm. First note that `a` and `b` are numbers, and hence\n"
+"are either `0` or successors.\n"
+"\n"
+"*) If `a` and `b` are both `0`, return \"yes\".\n"
+"\n"
+"*) If one is `0` and the other is `succ n`, return \"no\".\n"
+"\n"
+"*) If `a = succ m` and `b = succ n`, then return the answer to \"does `m = n`?\"\n"
+"\n"
+"Our job now is to *prove* that this algorithm always gives the correct answer. The proof that\n"
+"`0 = 0` is `rfl`. The proof that `0 ≠ succ n` is `zero_ne_succ n`, and the proof\n"
+"that `succ m ≠ 0` is `succ_ne_zero m`. The proof that if `h : m = n` then\n"
+"`succ m = succ n` is `rw [h]` and then `rfl`. This level is a proof of the one\n"
+"remaining job we have to do: if `a ≠ b` then `succ a ≠ succ b`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L07_succnesucc
+msgid "# Summary\n"
+"\n"
+"If you have a hypothesis\n"
+"\n"
+"`h : a ≠ b`\n"
+"\n"
+"and goal\n"
+"\n"
+"`c ≠ d`\n"
+"\n"
+"then `contrapose! h` replaces the set-up with its so-called \\\"contrapositive\\\":\n"
+"a hypothesis\n"
+"\n"
+"`h : c = d`\n"
+"\n"
+"and goal\n"
+"\n"
+"`a = b`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L07_succnesucc
+msgid "`succ_ne_succ m n` is the proof that `m ≠ n → succ m ≠ succ n`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L07_succnesucc
+msgid "If $a \\neq b$ then $\\operatorname{succ}(a) \\neq\\operatorname{succ}(b)$."
+msgstr ""
+
+#: Game.Levels.Algorithm.L07_succnesucc
+msgid "Start with `contrapose! h`, to change the goal into its\n"
+"contrapositive, namely a hypothesis of `succ m = succ m` and a goal of `m = n`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L07_succnesucc
+msgid "Can you take it from here? (note: if you try `contrapose! h` again, it will\n"
+"take you back to where you started!)"
+msgstr ""
+
+#: Game.Levels.Algorithm.L08_decide_I
+msgid "decide"
+msgstr ""
+
+#: Game.Levels.Algorithm.L08_decide_I
+msgid "# Summary\n"
+"\n"
+"`decide` will attempt to solve a goal if it can find an algorithm which it\n"
+"can run to solve it.\n"
+"\n"
+"## Example\n"
+"\n"
+"A term of type `DecidableEq ℕ` is an algorithm to decide whether two naturals\n"
+"are equal or different. Hence, once this term is made and made into an `instance`,\n"
+"the `decide` tactic can use it to solve goals of the form `a = b` or `a ≠ b`."
+msgstr ""
+
+#: Game.Levels.Algorithm.L08_decide_I
+msgid "Implementing the algorithm for equality of naturals, and the proof that it is correct,\n"
+"looks like this:\n"
+"\n"
+"```\n"
+"instance instDecidableEq : DecidableEq ℕ\n"
+"| 0, 0 => isTrue <| by\n"
+"  show 0 = 0\n"
+"  rfl\n"
+"| succ m, 0 => isFalse <| by\n"
+"  show succ m ≠ 0\n"
+"  exact succ_ne_zero m\n"
+"| 0, succ n => isFalse <| by\n"
+"  show 0 ≠ succ n\n"
+"  exact zero_ne_succ n\n"
+"| succ m, succ n =>\n"
+"  match instDecidableEq m n with\n"
+"  | isTrue (h : m = n) => isTrue <| by\n"
+"    show succ m = succ n\n"
+"    rw [h]\n"
+"    rfl\n"
+"  | isFalse (h : m ≠ n) => isFalse <| by\n"
+"    show succ m ≠ succ n\n"
+"    exact succ_ne_succ m n h\n"
+"```\n"
+"\n"
+"This Lean code is a formally verified algorithm for deciding equality\n"
+"between two naturals. I've typed it in already, behind the scenes.\n"
+"Because the algorithm is formally verified to be correct, we can\n"
+"use it in Lean proofs. You can run the algorithm with the `decide` tactic."
+msgstr ""
+
+#: Game.Levels.Algorithm.L08_decide_I
+msgid "$20+20=40$."
+msgstr ""
+
+#: Game.Levels.Algorithm.L08_decide_I
+msgid "You can read more about the `decide` tactic by clicking\n"
+"on it in the top right."
+msgstr ""
+
+#: Game.Levels.Algorithm.L09_decide_II
+msgid "decide again"
+msgstr ""
+
+#: Game.Levels.Algorithm.L09_decide_II
+msgid "We gave a pretty unsatisfactory proof of `2 + 2 ≠ 5` earlier on; now give a nicer one."
+msgstr ""
+
+#: Game.Levels.Algorithm.L09_decide_II
+msgid "$2+2 \\neq 5.$"
+msgstr ""
+
+#: Game.Levels.Algorithm.L09_decide_II
+msgid "Congratulations! You've finished Algorithm World. These algorithms\n"
+"will be helpful for you in Even-Odd World."
+msgstr ""
+
+#: Game.Levels.Algorithm
+msgid "Algorithm World"
+msgstr ""
+
+#: Game.Levels.Algorithm
+msgid "Proofs like $2+2=4$ and $a+b+c+d+e=e+d+c+b+a$ are very tedious to do by hand.\n"
+"In Algorithm World we learn how to get the computer to do them for us.\n"
+"\n"
+"Click on \"Start\" to proceed."
 msgstr ""
 
 #: Game
