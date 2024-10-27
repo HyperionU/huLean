@@ -1,12 +1,10 @@
 import Game.Levels.Basics
 import Game.Levels.Addition
+import Game.Levels.AdvAddition
 import Game.Levels.Multiplication
 import Game.Levels.Implication
 import Game.Levels.Power
 import Game.Levels.Algorithm
-import Game.Levels.AndIntro
-
-Dependency Implication → AndIntro
 
 -- Here's what we'll put on the title screen
 Title "Intro to Lean"
@@ -22,6 +20,7 @@ Introduction
 * Power: Defining Exponentiation to (sorta) prove FLT.
 ### Logic
 * Implication: Proving the converse, $2 + 2 ≠ 5$.
+* ∧ Intro: Introducion to simple logic,
 ### Automation
 * Algorithm: Automating some of our proofs.
 "

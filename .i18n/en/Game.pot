@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Tue Oct 22 01:09:43 2024\n"
+"POT-Creation-Date: Sun Oct 27 23:54:19 2024\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -1346,303 +1346,6 @@ msgid "Welcome to Addition World! In this world we'll learn the `induction` tact
 "the game)."
 msgstr ""
 
-#: Game.Levels.Multiplication.L01_mulone
-msgid "mul_one"
-msgstr ""
-
-#: Game.Levels.Multiplication.L01_mulone
-msgid "See the new \"*\" tab in your lemmas, containing `mul_zero` and `mul_succ`.\n"
-"Right now these are the only facts we know about multiplication.\n"
-"Let's prove nine more.\n"
-"\n"
-"Let's start with a warm-up: no induction needed for this one,\n"
-"because we know `1` is a successor."
-msgstr ""
-
-#: Game.Levels.Multiplication.L01_mulone
-msgid "`Mul a b`, with notation `a * b`, is the usual\n"
-"  product of natural numbers. Internally it is\n"
-"  via two axioms:\n"
-"\n"
-"  * `mul_zero a : a * 0 = 0`\n"
-"\n"
-"  * `mul_succ a b : a * succ b = a * b + a`\n"
-"\n"
-"Other theorems about naturals, such as `zero_mul`,\n"
-"are proved by induction from these two basic theorems."
-msgstr ""
-
-#: Game.Levels.Multiplication.L01_mulone
-msgid "`mul_zero m` is the proof that `m * 0 = 0`."
-msgstr ""
-
-#: Game.Levels.Multiplication.L01_mulone
-msgid "`mul_succ a b` is the proof that `a * succ b = a * b + a`."
-msgstr ""
-
-#: Game.Levels.Multiplication.L01_mulone
-msgid "`mul_one m` is the proof that `m * 1 = m`."
-msgstr ""
-
-#: Game.Levels.Multiplication.L01_mulone
-msgid "For any natural number $m$, we have $ m \\times 1 = m$."
-msgstr ""
-
-#: Game.Levels.Multiplication.L02_zeromul
-msgid "zero_mul"
-msgstr ""
-
-#: Game.Levels.Multiplication.L02_zeromul
-msgid "Our first challenge is `mul_comm x y : x * y = y * x`,\n"
-"and we want to prove it by induction. The zero\n"
-"case will need `mul_zero` (which we have)\n"
-"and `zero_mul` (which we don't), so let's\n"
-"start with this."
-msgstr ""
-
-#: Game.Levels.Multiplication.L02_zeromul
-msgid "`zero_mul x` is the proof that `0 * x = 0`.\n"
-"\n"
-"Note: `zero_mul` is a `simp` lemma."
-msgstr ""
-
-#: Game.Levels.Multiplication.L02_zeromul
-msgid "For all natural numbers $m$, we have $ 0 \\times m = 0$."
-msgstr ""
-
-#: Game.Levels.Multiplication.L03_succmul
-msgid "succ_mul"
-msgstr ""
-
-#: Game.Levels.Multiplication.L03_succmul
-msgid "Similarly we have `mul_succ`\n"
-"but we're going to need `succ_mul` (guess what it says -- maybe you\n"
-"are getting the hang of Lean's naming conventions).\n"
-"\n"
-"The last level from addition world might help you in this level.\n"
-"If you can't remember what it is, you can go back to the\n"
-"home screen by clicking the house icon and then taking a look.\n"
-"You won't lose any progress."
-msgstr ""
-
-#: Game.Levels.Multiplication.L03_succmul
-msgid "`succ_mul a b` is the proof that `succ a * b = a * b + b`.\n"
-"\n"
-"It could be deduced from `mul_succ` and `mul_comm`, however this argument\n"
-"would be circular because the proof of `mul_comm` uses `mul_succ`."
-msgstr ""
-
-#: Game.Levels.Multiplication.L03_succmul
-msgid "For all natural numbers $a$ and $b$, we have\n"
-"$(\\operatorname{succ}\\ a) \\times b = a\\times b + b$."
-msgstr ""
-
-#: Game.Levels.Multiplication.L04_mulcomm
-msgid "mul_comm"
-msgstr ""
-
-#: Game.Levels.Multiplication.L04_mulcomm
-msgid "The first sub-boss of Multiplication World is `mul_comm x y : x * y = y * x`.\n"
-"\n"
-"When you've proved this theorem we will have \"spare\" proofs\n"
-"such as `zero_mul`, which is now easily deducible from `mul_zero`.\n"
-"But we'll keep hold of these proofs anyway, because it's convenient\n"
-"to have exactly the right tool for a job."
-msgstr ""
-
-#: Game.Levels.Multiplication.L04_mulcomm
-msgid "`mul_comm` is the proof that multiplication is commutative. More precisely,\n"
-"`mul_comm a b` is the proof that `a * b = b * a`."
-msgstr ""
-
-#: Game.Levels.Multiplication.L04_mulcomm
-msgid "Multiplication is commutative."
-msgstr ""
-
-#: Game.Levels.Multiplication.L05_onemul
-msgid "one_mul"
-msgstr ""
-
-#: Game.Levels.Multiplication.L05_onemul
-msgid "You can prove $1\\times m=m$ in at least three ways.\n"
-"Either by induction, or by using `succ_mul`, or\n"
-"by using commutativity. Which do you think is quickest?"
-msgstr ""
-
-#: Game.Levels.Multiplication.L05_onemul
-msgid "`one_mul m` is the proof `1 * m = m`."
-msgstr ""
-
-#: Game.Levels.Multiplication.L05_onemul
-msgid "For any natural number $m$, we have $ 1 \\times m = m$."
-msgstr ""
-
-#: Game.Levels.Multiplication.L05_onemul
-msgid "Here's my solution:\n"
-"```\n"
-"rw [mul_comm, mul_one]\n"
-"rfl\n"
-"```"
-msgstr ""
-
-#: Game.Levels.Multiplication.L06_twomul
-msgid "two_mul"
-msgstr ""
-
-#: Game.Levels.Multiplication.L06_twomul
-msgid "This level is more important than you think; it plays\n"
-"a useful role when battling a big boss later on."
-msgstr ""
-
-#: Game.Levels.Multiplication.L06_twomul
-msgid "`two_mul m` is the proof that `2 * m = m + m`."
-msgstr ""
-
-#: Game.Levels.Multiplication.L06_twomul
-msgid "For any natural number $m$, we have $ 2 \\times m = m+m$."
-msgstr ""
-
-#: Game.Levels.Multiplication.L06_twomul
-msgid "Here's my solution:\n"
-"```\n"
-"rw [two_eq_succ_one, succ_mul, one_mul]\n"
-"rfl\n"
-"```"
-msgstr ""
-
-#: Game.Levels.Multiplication.L07_muladd
-msgid "mul_add"
-msgstr ""
-
-#: Game.Levels.Multiplication.L07_muladd
-msgid "Our next goal is \"left and right distributivity\",\n"
-"meaning $a(b+c)=ab+ac$ and $(b+c)a=ba+ca$. Rather than\n"
-"these slightly pompous names, the name of the proofs\n"
-"in Lean are descriptive. Let's start with\n"
-"`mul_add a b c`, the proof of `a * (b + c) = a * b + a * c`.\n"
-"Note that the left hand side contains a multiplication\n"
-"and then an addition."
-msgstr ""
-
-#: Game.Levels.Multiplication.L07_muladd
-msgid "Multiplication distributes\n"
-"over addition on the left.\n"
-"\n"
-"`mul_add a b c` is the proof that `a * (b + c) = a * b + a * c`."
-msgstr ""
-
-#: Game.Levels.Multiplication.L07_muladd
-msgid "Multiplication is distributive over addition on the left.\n"
-"In other words, for all natural numbers $a$, $b$ and $c$, we have\n"
-"$a(b + c) = ab + ac$."
-msgstr ""
-
-#: Game.Levels.Multiplication.L07_muladd
-msgid "You can do induction on any of the three variables. Some choices\n"
-"are harder to push through than others. Can you do the inductive step in\n"
-"5 rewrites only?"
-msgstr ""
-
-#: Game.Levels.Multiplication.L07_muladd
-msgid "Induction on `a` is the most troublesome, then `b`,\n"
-"and `c` is the easiest."
-msgstr ""
-
-#: Game.Levels.Multiplication.L07_muladd
-msgid "Here's my solution:\n"
-"```\n"
-"induction c with d hd\n"
-"rw [add_zero, mul_zero, add_zero]\n"
-"rfl\n"
-"rw [add_succ, mul_succ, hd, mul_succ, add_assoc]\n"
-"rfl\n"
-"```\n"
-"\n"
-"Inducting on `a` or `b` also works, but might take longer."
-msgstr ""
-
-#: Game.Levels.Multiplication.L08_addmul
-msgid "add_mul"
-msgstr ""
-
-#: Game.Levels.Multiplication.L08_addmul
-msgid "`add_mul` is just as fiddly to prove by induction; but there's a trick\n"
-"which avoids it. Can you spot it?"
-msgstr ""
-
-#: Game.Levels.Multiplication.L08_addmul
-msgid "`add_mul a b c` is a proof that $(a+b)c=ac+bc$."
-msgstr ""
-
-#: Game.Levels.Multiplication.L08_addmul
-msgid "Addition is distributive over multiplication.\n"
-"In other words, for all natural numbers $a$, $b$ and $c$, we have\n"
-"$(a + b) \\times c = ac + bc$."
-msgstr ""
-
-#: Game.Levels.Multiplication.L08_addmul
-msgid "Here's my proof:\n"
-"```\n"
-"rw [mul_comm, mul_add]\n"
-"repeat rw [mul_comm c]\n"
-"rfl\n"
-"```"
-msgstr ""
-
-#: Game.Levels.Multiplication.L09_mulassoc
-msgid "mul_assoc"
-msgstr ""
-
-#: Game.Levels.Multiplication.L09_mulassoc
-msgid "We now have enough to prove that multiplication is associative,\n"
-"the boss level of multiplication world. Good luck!"
-msgstr ""
-
-#: Game.Levels.Multiplication.L09_mulassoc
-msgid "`mul_assoc a b c` is a proof that `(a * b) * c = a * (b * c)`.\n"
-"\n"
-"Note that when Lean says `a * b * c` it means `(a * b) * c`.\n"
-"\n"
-"Note that `(a * b) * c = a * (b * c)` cannot be proved by \\\"pure thought\\\":\n"
-"for example subtraction is not associative, as `(6 - 2) - 1` is not\n"
-"equal to `6 - (2 - 1)`."
-msgstr ""
-
-#: Game.Levels.Multiplication.L09_mulassoc
-msgid "Multiplication is associative.\n"
-"In other words, for all natural numbers $a$, $b$ and $c$, we have\n"
-"$(ab)c = a(bc)$."
-msgstr ""
-
-#: Game.Levels.Multiplication.L09_mulassoc
-msgid "A passing mathematician notes that you've proved\n"
-"that the natural numbers are a commutative semiring.\n"
-"\n"
-"If you want to begin your journey to the final boss, head for Power World."
-msgstr ""
-
-#: Game.Levels.Multiplication
-msgid "Multiplication World"
-msgstr ""
-
-#: Game.Levels.Multiplication
-msgid "How should we define `37 * x`? Just like addition, we need to give definitions\n"
-"when $x=0$ and when $x$ is a successor.\n"
-"\n"
-"The zero case is easy: we define `37 * 0` to be `0`. Now say we know\n"
-"`37 * d`. What should `37 * succ d` be? Well, that's $(d+1)$ $37$s,\n"
-"so it should be `37 * d + 37`.\n"
-"\n"
-"Here are the definitions in Lean.\n"
-"\n"
-"  * `mul_zero a : a * 0 = 0`\n"
-"  * `mul_succ a d : a * succ d = a * d + a`\n"
-"\n"
-"In this world, we must not only prove facts about multiplication like `a * b = b * a`,\n"
-"we must also prove facts about how multiplication interacts with addition, like `a * (b + c) = a * b + a * c`.\n"
-"Let's get started."
-msgstr ""
-
 #: Game.Levels.Implication.L01_exact_I
 msgid "The `exact` tactic"
 msgstr ""
@@ -2172,278 +1875,6 @@ msgid "We've proved that $2+2=4$; in Implication World we'll learn\n"
 "Click on \"Start\" to proceed."
 msgstr ""
 
-#: Game.Levels.Power.L01_zeropown_I
-msgid "zero_pow_zero"
-msgstr ""
-
-#: Game.Levels.Power.L01_zeropown_I
-msgid "Mathematicians sometimes debate what `0 ^ 0` is;\n"
-"the answer depends, of course, on your definitions. In this\n"
-"game, `0 ^ 0 = 1`. See if you can prove it.\n"
-"\n"
-"Check out the *Pow* tab in your list of theorems\n"
-"to see the new proofs which are available."
-msgstr ""
-
-#: Game.Levels.Power.L01_zeropown_I
-msgid "`Pow a b`, with notation `a ^ b`, is the usual\n"
-"  exponentiation of natural numbers. Internally it is\n"
-"  defined via two axioms:\n"
-"\n"
-"  * `pow_zero a : a ^ 0 = 1`\n"
-"\n"
-"  * `pow_succ a b : a ^ succ b = a ^ b * a`\n"
-"\n"
-"Note in particular that `0 ^ 0 = 1`."
-msgstr ""
-
-#: Game.Levels.Power.L01_zeropown_I
-msgid "`pow_zero a : a ^ 0 = 1` is one of the two axioms\n"
-"defining exponentiation in this game."
-msgstr ""
-
-#: Game.Levels.Power.L01_zeropown_I
-msgid "Mathematicians sometimes argue that `0 ^ 0 = 0` is also\n"
-"a good convention. But it is not a good convention in this\n"
-"game; all the later levels come out beautifully with the\n"
-"convention that `0 ^ 0 = 1`."
-msgstr ""
-
-#: Game.Levels.Power.L01_zeropown_I
-msgid "$0 ^ 0 = 1$"
-msgstr ""
-
-#: Game.Levels.Power.L02_zeropown_II
-msgid "zero_pow_succ"
-msgstr ""
-
-#: Game.Levels.Power.L02_zeropown_II
-msgid "We've just seen that `0 ^ 0 = 1`, but if `n`\n"
-"is a successor, then `0 ^ n = 0`. We prove that here."
-msgstr ""
-
-#: Game.Levels.Power.L02_zeropown_II
-msgid "`pow_succ a b : a ^ (succ b) = a ^ b * a` is one of the\n"
-"two axioms defining exponentiation in this game."
-msgstr ""
-
-#: Game.Levels.Power.L02_zeropown_II
-msgid "Although $0^0=1$ in this game, $0^n=0$ if $n>0$, i.e., if\n"
-"$n$ is a successor."
-msgstr ""
-
-#: Game.Levels.Power.L02_zeropown_II
-msgid "For all numbers $m$, $0 ^{\\operatorname{succ} (m)} = 0$."
-msgstr ""
-
-#: Game.Levels.Power.L03_powone
-msgid "pow_one"
-msgstr ""
-
-#: Game.Levels.Power.L03_powone
-msgid "`pow_one a` says that `a ^ 1 = a`.\n"
-"\n"
-"Note that this is not quite true by definition: `a ^ 1` is\n"
-"defined to be `a ^ 0 * a` so it's `1 * a`, and to prove\n"
-"that this is equal to `a` you need to use induction somewhere."
-msgstr ""
-
-#: Game.Levels.Power.L03_powone
-msgid "For all naturals $a$, $a ^ 1 = a$."
-msgstr ""
-
-#: Game.Levels.Power.L04_onepow
-msgid "one_pow"
-msgstr ""
-
-#: Game.Levels.Power.L04_onepow
-msgid "`one_pow n` is a proof that $1^n=1$."
-msgstr ""
-
-#: Game.Levels.Power.L04_onepow
-msgid "For all naturals $m$, $1 ^ m = 1$."
-msgstr ""
-
-#: Game.Levels.Power.L05_powtwo
-msgid "pow_two"
-msgstr ""
-
-#: Game.Levels.Power.L05_powtwo
-msgid "Note: this lemma will be useful for the final boss!"
-msgstr ""
-
-#: Game.Levels.Power.L05_powtwo
-msgid "`pow_two a` says that `a ^ 2 = a * a`."
-msgstr ""
-
-#: Game.Levels.Power.L05_powtwo
-msgid "For all naturals $a$, $a ^ 2 = a \\times a$."
-msgstr ""
-
-#: Game.Levels.Power.L06_powadd
-msgid "pow_add"
-msgstr ""
-
-#: Game.Levels.Power.L06_powadd
-msgid "Let's now begin our approach to the final boss,\n"
-"by proving some more subtle facts about powers."
-msgstr ""
-
-#: Game.Levels.Power.L06_powadd
-msgid "`pow_add a m n` is a proof that $a^{m+n}=a^ma^n.$"
-msgstr ""
-
-#: Game.Levels.Power.L06_powadd
-msgid "For all naturals $a$, $m$, $n$, we have $a^{m + n} = a ^ m  a ^ n$."
-msgstr ""
-
-#: Game.Levels.Power.L07_mulpow
-msgid "mul_pow"
-msgstr ""
-
-#: Game.Levels.Power.L07_mulpow
-msgid "The music gets ever more dramatic, as we explore\n"
-"the interplay between exponentiation and multiplication.\n"
-"\n"
-"If you're having trouble exchanging the right `a * b`\n"
-"because `rw [mul_comm]` swaps the wrong multiplication,\n"
-"then read the documentation of `rw` for tips on how to fix this."
-msgstr ""
-
-#: Game.Levels.Power.L07_mulpow
-msgid "`mul_pow a b n` is a proof that $(ab)^n=a^nb^n.$"
-msgstr ""
-
-#: Game.Levels.Power.L07_mulpow
-msgid "For all naturals $a$, $b$, $n$, we have $(ab) ^ n = a ^ nb ^ n$."
-msgstr ""
-
-#: Game.Levels.Power.L08_powpow
-msgid "pow_pow"
-msgstr ""
-
-#: Game.Levels.Power.L08_powpow
-msgid "One of the best named levels in the game, a savage `pow_pow`\n"
-"sub-boss appears as the music reaches a frenzy. What\n"
-"else could there be to prove about powers after this?"
-msgstr ""
-
-#: Game.Levels.Power.L08_powpow
-msgid "`pow_pow a m n` is a proof that $(a^m)^n=a^{mn}.$"
-msgstr ""
-
-#: Game.Levels.Power.L08_powpow
-msgid "For all naturals $a$, $m$, $n$, we have $(a ^ m) ^ n = a ^ {mn}$."
-msgstr ""
-
-#: Game.Levels.Power.L08_powpow
-msgid "The music dies down. Is that it?\n"
-"\n"
-"Course it isn't, you can\n"
-"clearly see that there are two levels left.\n"
-"\n"
-"A passing mathematician says that mathematicians don't have a name\n"
-"for the structure you just constructed. You feel cheated.\n"
-"\n"
-"Suddenly the music starts up again. This really is the final boss."
-msgstr ""
-
-#: Game.Levels.Power.L09_addsq
-msgid "add_sq"
-msgstr ""
-
-#: Game.Levels.Power.L09_addsq
-msgid "[final boss music]"
-msgstr ""
-
-#: Game.Levels.Power.L09_addsq
-msgid "`add_sq a b` is the statement that $(a+b)^2=a^2+b^2+2ab.$"
-msgstr ""
-
-#: Game.Levels.Power.L09_addsq
-msgid "For all numbers $a$ and $b$, we have\n"
-"$$(a+b)^2=a^2+b^2+2ab.$$"
-msgstr ""
-
-#: Game.Levels.Power.L09_addsq
-msgid "It's all over! You have proved a theorem which has tripped up\n"
-"schoolkids for generations (some of them think $(a+b)^2=a^2+b^2$:\n"
-"this is \"the freshman's dream\").\n"
-"\n"
-"How many rewrites did you use? I can do it in 12.\n"
-"\n"
-"But wait! This boss is stirring...and mutating into a second more powerful form!"
-msgstr ""
-
-#: Game.Levels.Power.L10_FLT
-msgid "Fermat's Last Theorem"
-msgstr ""
-
-#: Game.Levels.Power.L10_FLT
-msgid "We now have enough to state a mathematically accurate, but slightly\n"
-"clunky, version of Fermat's Last Theorem.\n"
-"\n"
-"Fermat's Last Theorem states that if $x,y,z>0$ and $m \\geq 3$ then $x^m+y^m\\not =z^m$.\n"
-"If you didn't do inequality world yet then we can't talk about $m \\geq 3$,\n"
-"so we have to resort to the hack of using `n + 3` for `m`,\n"
-"which guarantees it's big enough. Similarly instead of `x > 0` we\n"
-"use `a + 1`.\n"
-"\n"
-"This level looks superficially like other levels we have seen,\n"
-"but the shortest solution known to humans would translate into\n"
-"many millions of lines of Lean code. The author of this game,\n"
-"Kevin Buzzard, is working on translating the proof by Wiles\n"
-"and Taylor into Lean, although this task will take many years.\n"
-"\n"
-"## CONGRATULATIONS!\n"
-"\n"
-"You've finished the main quest of the natural number game!\n"
-"If you would like to learn more about how to use Lean to\n"
-"prove theorems in mathematics, then take a look\n"
-"at [Mathematics In Lean](https://leanprover-community.github.io/mathematics_in_lean/),\n"
-"an interactive textbook which you can read in your browser,\n"
-"and which explains how to work with many more mathematical concepts in Lean."
-msgstr ""
-
-#: Game.Levels.Power.L10_FLT
-msgid "`xyzzy` is an ancient magic spell, believed to be the origin of the\n"
-"modern word `sorry`. The game won't complain - or notice - if you\n"
-"prove anything with `xyzzy`."
-msgstr ""
-
-#: Game.Levels.Power.L10_FLT
-msgid "For all naturals $a$ $b$ $c$ and $n$, we have\n"
-"$$(a+1)^{n+3}+(b+1)^{n+3}\\not=(c+1)^{n+3}.$$"
-msgstr ""
-
-#: Game.Levels.Power.L10_FLT
-msgid "Congratulations! You have proved Fermat's Last Theorem!\n"
-"\n"
-"Either that, or you used magic..."
-msgstr ""
-
-#: Game.Levels.Power
-msgid "Power World"
-msgstr ""
-
-#: Game.Levels.Power
-msgid "This world introduces exponentiation. If you want to define `37 ^ n`\n"
-"then, as always, you will need to know what `37 ^ 0` is, and\n"
-"what `37 ^ (succ d)` is, given only `37 ^ d`.\n"
-"\n"
-"You can probably guess the names of the general theorems:\n"
-"\n"
-"  * `pow_zero (a : ℕ) : a ^ 0 = 1`\n"
-"  * `pow_succ (a b : ℕ) : a ^ succ b = a ^ b * a`\n"
-"\n"
-"Using only these, can you get past the final boss level?\n"
-"\n"
-"The levels in this world were designed by Sian Carey, a UROP student\n"
-"at Imperial College London, funded by a Mary Lister McCammon Fellowship\n"
-"in the summer of 2019. Thanks to Sian and also thanks to Imperial\n"
-"College for funding her."
-msgstr ""
-
 #: Game.Levels.Algorithm.L01_ladcomm
 msgid "add_left_comm"
 msgstr ""
@@ -2828,405 +2259,829 @@ msgid "Proofs like $2+2=4$ and $a+b+c+d+e=e+d+c+b+a$ are very tedious to do by h
 "Click on \"Start\" to proceed."
 msgstr ""
 
-#: Game.Levels.AndIntro.L01_and
-msgid "Exactly! It's in the premise"
+#: Game.Levels.AdvAddition.L01_adrcancel
+msgid "add_right_cancel"
 msgstr ""
 
-#: Game.Levels.AndIntro.L01_and
-msgid "# Introduction\n"
-"You've made a todo list, so you've begun to plan your party.\n"
-"## Proposition Key:\n"
-"`P` — You're **P**lanning a party\n"
-"## Assumptions\n"
-"`todo_list : P` — Can be read as “The `todo_list` is evidence that you're `P`lanning a party”\n"
-"# The Exact Tactic\n"
-"The Exact tactic is — for now — the means through which you give the game your answer. It's your way of declaring that you're done. In this level, you're just going to be using one of the assumptions directly, but as you learn how to form expressions the `exact` tactic will accept those too.\\\n"
-"\\\n"
-"The input will look like `exact e` where `e` is an expression the game will accept for the current Goal.\\\n"
-"\\\n"
-"⋆Spoilers!⋆ If you enter “`exact todo_list`,” you will have completed this level.\n"
+#: Game.Levels.AdvAddition.L01_adrcancel
+msgid "`add_right_cancel a b n` is the theorem that $a+n=b+n \\implies a=b.$"
+msgstr ""
+
+#: Game.Levels.AdvAddition.L01_adrcancel
+msgid "In this world I will mostly leave you on your own.\n"
 "\n"
-"# Become Familiar with the User Interface!\n"
-"\n"
-"# Proof State\n"
-"Found in the middle bottom of the screen, the proof state tells you what objects exist, what assumptions are available, and what goal proposition you're trying to exhibit evidence for. Find the area of the screen with **Objects**, **Assumptions**, and **Goal**. I'll describe each shortly here.\n"
-"## 1. Objects:\n"
-"In this level, you'll notice that there is only one proposition. `P : Prop` is the game's way of telling you that it knows that `P` is a proposition. You can check out the **Proposition Key** above to learn what it's denoting in this level if you're interested.\n"
-"## 2. Assumptions:\n"
-"Most levels will give you some starting assumptions that take the form of evidence for some propositions. The shorthand for a proposition traditionally starts with a capital letter and the shorthand for evidence traditionally starts with a lowercase letter.\n"
-"## 3. Goal:\n"
-"The goal is always a proposition that you want to exhibit some evidence for. In this level, one of your assumptions already contains evidence for the goal. That will certainly not always be the case.\n"
-"# Inventory\n"
-"On the right of the screen is your inventory of tactics, definitions, and theorems. Once unlocked, you can click them to read about what they do."
+"`add_right_cancel a b n` is the theorem that $a+n=b+n\\implies a=b$."
 msgstr ""
 
-#: Game.Levels.AndIntro.L01_and
-msgid "Exhibit evidence that you're planning a party."
+#: Game.Levels.AdvAddition.L01_adrcancel
+msgid "$a+n=b+n\\implies a=b$."
 msgstr ""
 
-#: Game.Levels.AndIntro.L01_and
-msgid "Congratulations, not only have you started your todo list, you've learned how to exhibit the list as evidence that you've started planning the party."
+#: Game.Levels.AdvAddition.L01_adrcancel
+msgid "Start with induction on `n`."
 msgstr ""
 
-#: Game.Levels.AndIntro.L02_andprops
-msgid "And Introduction"
+#: Game.Levels.AdvAddition.L01_adrcancel
+msgid "Nice!"
 msgstr ""
 
-#: Game.Levels.AndIntro.L02_andprops
-msgid "# `∧`\n"
-"The hat symbol “ ∧ ” is how logicians denote a conjunction — a logical “and”. `A ∧ B` means “A and B”. It works the way you would intuitively expect. Like a lot of math operators (`+,-,÷,×`,and others), the `∧` symbol is an infix operator. This means it has a left side and a right side. Looking at `A ∧ B`, you can see that `A` is on the left and `B` is on the right.\n"
-"\n"
-"# Sending Invitations in a Single Package\n"
-"You have two letters, one extending an invitation to Pippin and the other to Sybeth. Since they share a residence, you'd like to consolidate their invites into a single package for shipping. The box you're using has space for two items, one on the left and one on the right.\\\n"
-"\\\n"
-"You've labelled the box explicitly, specifying that Pippin's invitation is on the left and Sybeth's invitation is on the right. This ensures there's no confusion about the contents of the box. Upon opening it, they will easily locate their respective invites without the need to search the entire package.\n"
-"# Proposition Key:\n"
-"- P — “**P**ippin is invited to the party”\n"
-"- S — “**S**ybeth is invited to the party”\n"
-"\n"
-"Like the box described in the intro, any evidence for a conjunction like `A ∧ B` will have a left part and a right part.\n"
-"# Assumptions\n"
-"- `p : P` — Your invitation for Pippin is evidence that Pippin is invited to the party\n"
-"- `s : S` — Your invitation for Sybeth is evidence that Sybeth is invited to the party\n"
-"# Goal\n"
-"Use `p` and `s` to produce evidence that `P ∧ S`. Remember that you use evidence (generally lowercase letters), to deduce new propositions (generally uppercase letters)\n"
-"\n"
-"# Using the `∧` Construtor\n"
-"This level has unlocked “`∧`” under definitions. This has made the `and_intro` theorem available. You can use `and_intro` by giving it the two relevant pieces of evidence. The expression looks like: `and_intro e₁ e₂` where `e₁` and `e₂` are evidence.\\\n"
-"\\\n"
-"The help page has even more detail about creating conjunctions like this (There's a common shorthand using angle-brackets `⟨` `,` `⟩` ).\n"
-"\n"
-"# A reminder\n"
-"Use the `exact` tactic to exhibit evidence for a goal"
+#: Game.Levels.AdvAddition.L02_adlcancel
+msgid "add_left_cancel"
 msgstr ""
 
-#: Game.Levels.AndIntro.L02_andprops
-msgid "Fill a box, label correctly"
+#: Game.Levels.AdvAddition.L02_adlcancel
+msgid "`add_left_cancel a b n` is the theorem that $n+a=n+b \\implies a=b.$"
 msgstr ""
 
-#: Game.Levels.AndIntro.L02_andprops
-msgid "exact and_intro p s"
+#: Game.Levels.AdvAddition.L02_adlcancel
+msgid "`add_left_cancel a b n` is the theorem that $n+a=n+b\\implies a=b$.\n"
+"You can prove it by induction on `n` or you can deduce it from `add_right_cancel`."
 msgstr ""
 
-#: Game.Levels.AndIntro.L02_andprops
-msgid "You've got evidence that Pippin and Sybeth are invited to the party.\\\n"
-"\\\n"
-"Here are some answers the game would have accepted:\n"
+#: Game.Levels.AdvAddition.L02_adlcancel
+msgid "$n+a=n+b\\implies a=b$."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L02_adlcancel
+msgid "How about this for a proof:\n"
 "```\n"
-"exact and_intro p s\n"
-"exact ⟨p,s⟩\n"
+"repeat rw [add_comm n]\n"
+"exact add_right_cancel a b n\n"
 "```"
 msgstr ""
 
-#: Game.Levels.AndIntro.L03_have
-msgid "The Have Tactic"
+#: Game.Levels.AdvAddition.L03_adlself
+msgid "add_left_eq_self"
 msgstr ""
 
-#: Game.Levels.AndIntro.L03_have
-msgid "# Too Many Invites\n"
-"You have invites for Alarfil, Ilyn, Orin, and Uriel who all live together. Unfortunately, boxes only have space for two items, but you've thought up a clever solution!\n"
-"1. You'll put Alarfil's and Ilyn's invites in a box,\n"
-"2. You'll put Orin's and Uriel's invites in another box.\n"
-"3. You'll put both boxes in a final box.\n"
-"### Nested Boxes!\n"
-"Nesting boxes like this is a way to get around the “two items per box” rule. Ensure that everything is correctly labelled to guarantee each invite reaches the correct recipient.\n"
-"# Proposition Key:\n"
-"- A — **A**larfil is invited to the party\n"
-"- I — **I**lyn is invited to the party\n"
-"- O — **O**rin is invited to the party\n"
-"- U — **U**riel is invited to the party\n"
-"\n"
-"# The `have` Tactic\n"
-"You can complete this level with your knowledge from the previous level without using this new tactic. For example, either of these would work:\n"
+#: Game.Levels.AdvAddition.L03_adlself
+msgid "`add_left_eq_self x y` is the theorem that $x + y = y \\implies x=0.$"
+msgstr ""
+
+#: Game.Levels.AdvAddition.L03_adlself
+msgid "`add_left_eq_self x y` is the theorem that $x + y = y\\implies x=0.$"
+msgstr ""
+
+#: Game.Levels.AdvAddition.L03_adlself
+msgid "$x + y = y\\implies x=0.$"
+msgstr ""
+
+#: Game.Levels.AdvAddition.L03_adlself
+msgid "Did you use induction on `y`?\n"
+"Here's a two-line proof of `add_left_eq_self` which uses `add_right_cancel`.\n"
+"If you want to inspect it, you can go into editor mode by clicking `</>` in the top right\n"
+"and then just cut and paste the proof and move your cursor around it\n"
+"to see the hypotheses and goal at any given point\n"
+"(although you'll lose your own proof this way). Click `>_` to get\n"
+"back to command line mode.\n"
 "```\n"
-"exact and_intro (and_intro a i) (and_intro o u)\n"
-"exact ⟨⟨a,i⟩,⟨o,u⟩⟩\n"
-"```\n"
-"Instead of nesting this way, you can break the process down into steps using the `have` tactic. Enter “`have ai := and_intro a i`” to create your first box. After it's entered, it will appear under assumptions in the proof state. Now enter “`have ou := and_intro o u`” to create the second box.\\\n"
-"\\\n"
-"If you followed this suggestion, your proof state should now have the following assumptions:\n"
-"```\n"
-"Assumptions:\n"
-"a: A\n"
-"i: I\n"
-"o: O\n"
-"u: U\n"
-"ai: A ∧ I\n"
-"ou: O ∧ U\n"
-"```\n"
-"\\\n"
-"Finally, now you can place these two boxes — `ai` and `ou` — into a third box and submit your answer using the `exact` tactic."
-msgstr ""
-
-#: Game.Levels.AndIntro.L03_have
-msgid "Three × and_intro."
-msgstr ""
-
-#: Game.Levels.AndIntro.L03_have
-msgid "exact and_intro «{ai}» «{ou}»"
-msgstr ""
-
-#: Game.Levels.AndIntro.L03_have
-msgid "Great! Another 4 invites sent out. You're getting the hang of this."
-msgstr ""
-
-#: Game.Levels.AndIntro.L04_elim_I
-msgid "And Elimination"
-msgstr ""
-
-#: Game.Levels.AndIntro.L04_elim_I
-msgid "# Using Only What Is Needed\n"
-"Sybeth has left a voicemail on your answering machine. In it she says “Hello, it's Sybeth, I'm calling to confirm that Pippin is coming to the party and I am also coming to the party! See you then!”\\\n"
-"\\\n"
-"You'd like to convince Cyna to join the party. You know that Cyna is good friends with Pippin. Constructing evidence that Pippin is attending the party might just be the key to convincing Cyna to join as well.\n"
-"# Proposition Key:\n"
-"- P — \"**P**ippin is coming to the party\"\n"
-"- S — \"**S**ybeth is coming to the party\"\n"
-"# Assumptions:\n"
-"- `vm : P ∧ S` — The voicemail (`vm`) is evidence that (`P ∧ S`) Pippin and Sybeth are coming to the party.\n"
-"# Convincing Cyna\n"
-"Cyna is close with Pippin, but you don't know much about his friendship with Sybeth. You want only a relevant part of the voicemail. Fortunately, you know that any evidence with an `∧` has a left part and a right part. You can use this knowledge to pull evidence out of `vm`.\\\n"
-"\\\n"
-"This can be done with either of these two methods:\n"
-"```\n"
-"have p := and_left vm\n"
-"have p := vm.left\n"
-"```\n"
-"Once you've done this, you're very close to level 1 again where the Goal is directly in your assumptions."
-msgstr ""
-
-#: Game.Levels.AndIntro.L04_elim_I
-msgid "Exhibit evidence that Pippin is coming to the party."
-msgstr ""
-
-#: Game.Levels.AndIntro.L04_elim_I
-msgid "You've got a proof that Pippin is coming to the party! Lets see if Cyna will attend as well.\n"
-"\n"
-"----\n"
-"A reminder that expressions work with the `have` and `exact` tactics in much the same way. You can also solve this level without `have`.\n"
-"```lean\n"
-"exact vm.left\n"
+"nth_rewrite 2 [← zero_add y]\n"
+"exact add_right_cancel x 0 y\n"
 "```"
 msgstr ""
 
-#: Game.Levels.AndIntro.L05_elim_II
-msgid "And Elimination 2"
+#: Game.Levels.AdvAddition.L04_adrself
+msgid "add_right_eq_self"
 msgstr ""
 
-#: Game.Levels.AndIntro.L05_elim_II
-msgid "# Another Unlock\n"
-"Can you figure this one out?"
+#: Game.Levels.AdvAddition.L04_adrself
+msgid "`add_right_eq_self x y` is the theorem that $x + y = x \\implies y=0.$"
 msgstr ""
 
-#: Game.Levels.AndIntro.L05_elim_II
-msgid "Both P and Q entails just Q as well!"
+#: Game.Levels.AdvAddition.L04_adrself
+msgid "`add_right_eq_self x y` is the theorem that $x + y = x\\implies y=0.$\n"
+"Two ways to do it spring to mind; I'll mention them when you've solved it."
 msgstr ""
 
-#: Game.Levels.AndIntro.L05_elim_II
-msgid "`exact h.right`"
+#: Game.Levels.AdvAddition.L04_adrself
+msgid "$x+y=x\\implies y=0$."
 msgstr ""
 
-#: Game.Levels.AndIntro.L05_elim_II
-msgid "Nice. Onward!\n"
+#: Game.Levels.AdvAddition.L04_adrself
+msgid "This state is not provable! Did you maybe use `rw [add_left_eq_self] at h`\n"
+"instead of `apply [add_left_eq_self] at h`? You can complare the two in the inventory."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L04_adrself
+msgid "This state is not provable! Did you maybe use `rw [add_left_eq_self] at h`\n"
+"instead of `apply [add_left_eq_self] at h`? You can complare the two in the inventory."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L04_adrself
+msgid "Here's a proof using `add_left_eq_self`:\n"
+"```\n"
+"rw [add_comm]\n"
+"intro h\n"
+"apply add_left_eq_self at h\n"
+"exact h\n"
+"```\n"
 "\n"
-"----\n"
+"and here's an even shorter one using the same idea:\n"
 "```\n"
-"exact h.right\n"
+"rw [add_comm]\n"
+"exact add_left_eq_self y x\n"
 "```\n"
-"----\n"
+"\n"
+"Alternatively you can just prove it by induction on `x`:\n"
+"\n"
 "```\n"
-"exact and_right h\n"
+"induction x with d hd\n"
+"intro h\n"
+"rw [zero_add] at h\n"
+"exact h\n"
+"intro h\n"
+"rw [succ_add] at h\n"
+"apply succ_inj at h\n"
+"apply hd at h\n"
+"exact h\n"
 "```"
 msgstr ""
 
-#: Game.Levels.AndIntro.L06_mixmatch
-msgid "Mix and Match"
+#: Game.Levels.AdvAddition.L05_adrzero
+msgid "add_right_eq_zero"
 msgstr ""
 
-#: Game.Levels.AndIntro.L06_mixmatch
-msgid "# Mixed Up Conjunctions\n"
-"Recall when you placed the invites for Alarfil, Ilyn, Orin, and Uriel in separate boxes. There was a mix-up in the arrangement. Can you fix it so that Alarfil and Uriel's invites are together?\n"
-"# Proposition Key:\n"
-"- A — **A**larfil is invited to the party\n"
-"- I — **I**lyn is invited to the party\n"
-"- O — **O**rin is invited to the party\n"
-"- U — **U**riel is invited to the party"
-msgstr ""
-
-#: Game.Levels.AndIntro.L06_mixmatch
-msgid "and_intro, and_left, and_right"
-msgstr ""
-
-#: Game.Levels.AndIntro.L06_mixmatch
-msgid "That's better, but you'd better send out those invites so you can get some responses!\n"
+#: Game.Levels.AdvAddition.L05_adrzero
+msgid "The next result we'll need in `≤` World is that if `a + b = 0` then `a = 0` and `b = 0`.\n"
+"Let's prove one of these facts in this level, and the other in the next.\n"
 "\n"
-"----\n"
+"## A new tactic: `cases`\n"
+"\n"
+"The `cases` tactic will split an object or hypothesis up into the possible ways\n"
+"that it could have been created.\n"
+"\n"
+"For example, sometimes you want to deal with the two cases `b = 0` and `b = succ d` separately,\n"
+"but don't need the inductive hypothesis `hd` that comes with `induction b with d hd`.\n"
+"In this situation you can use `cases b with d` instead. There are two ways to make\n"
+"a number: it's either zero or a successor. So you will end up with two goals, one\n"
+"with `b = 0` and one with `b = succ d`.\n"
+"\n"
+"Another example: if you have a hypothesis `h : False` then you are done, because a false statement implies\n"
+"any statement. Here `cases h` will close the goal, because there are *no* ways to\n"
+"make a proof of `False`! So you will end up with no goals, meaning you have proved everything."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L05_adrzero
+msgid "## Summary\n"
+"\n"
+"If `n` is a number, then `cases n with d` will break the goal into two goals,\n"
+"one with `n = 0` and the other with `n = succ d`.\n"
+"\n"
+"If `h` is a proof (for example a hypothesis), then `cases h with...` will break the\n"
+"proof up into the pieces used to prove it.\n"
+"\n"
+"## Example\n"
+"\n"
+"If `n : ℕ` is a number, then `cases n with d` will break the goal into two goals,\n"
+"one with `n` replaced by 0 and the other with `n` replaced by `succ d`. This\n"
+"corresponds to the mathematical idea that every natural number is either `0`\n"
+"or a successor.\n"
+"\n"
+"## Example\n"
+"\n"
+"If `h : P ∨ Q` is a hypothesis, then `cases h with hp hq` will turn one goal\n"
+"into two goals, one with a hypothesis `hp : P` and the other with a\n"
+"hypothesis `hq : Q`.\n"
+"\n"
+"## Example\n"
+"\n"
+"If `h : False` is a hypothesis, then `cases h` will turn one goal into no goals,\n"
+"because there are no ways to make a proof of `False`! And if you have no goals left,\n"
+"you have finished the level.\n"
+"\n"
+"## Example\n"
+"\n"
+"If `h : a ≤ b` is a hypothesis, then `cases h with c hc` will create a new number `c`\n"
+"and a proof `hc : b = a + c`. This is because the *definition* of `a ≤ b` is\n"
+"`∃ c, b = a + c`."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L05_adrzero
+msgid "A proof that $a+b=0 \\implies a=0$."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L05_adrzero
+msgid "If $a+b=0$ then $a=0$."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L05_adrzero
+msgid "Here we want to deal with the cases `b = 0` and `b ≠ 0` separately,\n"
+"so start with `cases b with d`."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L05_adrzero
+msgid "Well done!"
+msgstr ""
+
+#: Game.Levels.AdvAddition.L06_adlzero
+msgid "add_left_eq_zero"
+msgstr ""
+
+#: Game.Levels.AdvAddition.L06_adlzero
+msgid "You can just mimic the previous proof to do this one -- or you can figure out a way\n"
+"of using it."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L06_adlzero
+msgid "A proof that $a+b=0 \\implies b=0$."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L06_adlzero
+msgid "If $a+b=0$ then $b=0$."
+msgstr ""
+
+#: Game.Levels.AdvAddition.L06_adlzero
+msgid "How about this for a proof:\n"
+"\n"
 "```\n"
-"have a := h1.left\n"
-"have u := h2.right\n"
-"exact and_intro a u\n"
+"rw [add_comm]\n"
+"exact add_right_eq_zero b a\n"
 "```\n"
-"---\n"
+"\n"
+"That's the end of Advanced Addition World! You'll need these theorems\n"
+"for the next world, `≤` World. Click on \"Leave World\" to access it."
+msgstr ""
+
+#: Game.Levels.AdvAddition
+msgid "Advanced Addition World"
+msgstr ""
+
+#: Game.Levels.AdvAddition
+msgid "In Advanced Addition World we will prove some basic\n"
+"addition facts such as $x+y=x\\implies y=0$. The theorems\n"
+"proved in this world will be used to build\n"
+"a theory of inequalities in `≤` World.\n"
+"\n"
+"Click on \"Start\" to proceed."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "mul_one"
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "See the new \"*\" tab in your lemmas, containing `mul_zero` and `mul_succ`.\n"
+"Right now these are the only facts we know about multiplication.\n"
+"Let's prove nine more.\n"
+"\n"
+"Let's start with a warm-up: no induction needed for this one,\n"
+"because we know `1` is a successor."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "`Mul a b`, with notation `a * b`, is the usual\n"
+"  product of natural numbers. Internally it is\n"
+"  via two axioms:\n"
+"\n"
+"  * `mul_zero a : a * 0 = 0`\n"
+"\n"
+"  * `mul_succ a b : a * succ b = a * b + a`\n"
+"\n"
+"Other theorems about naturals, such as `zero_mul`,\n"
+"are proved by induction from these two basic theorems."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "`mul_zero m` is the proof that `m * 0 = 0`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "`mul_succ a b` is the proof that `a * succ b = a * b + a`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "`mul_one m` is the proof that `m * 1 = m`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L01_mulone
+msgid "For any natural number $m$, we have $ m \\times 1 = m$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L02_zeromul
+msgid "zero_mul"
+msgstr ""
+
+#: Game.Levels.Multiplication.L02_zeromul
+msgid "Our first challenge is `mul_comm x y : x * y = y * x`,\n"
+"and we want to prove it by induction. The zero\n"
+"case will need `mul_zero` (which we have)\n"
+"and `zero_mul` (which we don't), so let's\n"
+"start with this."
+msgstr ""
+
+#: Game.Levels.Multiplication.L02_zeromul
+msgid "`zero_mul x` is the proof that `0 * x = 0`.\n"
+"\n"
+"Note: `zero_mul` is a `simp` lemma."
+msgstr ""
+
+#: Game.Levels.Multiplication.L02_zeromul
+msgid "For all natural numbers $m$, we have $ 0 \\times m = 0$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L03_succmul
+msgid "succ_mul"
+msgstr ""
+
+#: Game.Levels.Multiplication.L03_succmul
+msgid "Similarly we have `mul_succ`\n"
+"but we're going to need `succ_mul` (guess what it says -- maybe you\n"
+"are getting the hang of Lean's naming conventions).\n"
+"\n"
+"The last level from addition world might help you in this level.\n"
+"If you can't remember what it is, you can go back to the\n"
+"home screen by clicking the house icon and then taking a look.\n"
+"You won't lose any progress."
+msgstr ""
+
+#: Game.Levels.Multiplication.L03_succmul
+msgid "`succ_mul a b` is the proof that `succ a * b = a * b + b`.\n"
+"\n"
+"It could be deduced from `mul_succ` and `mul_comm`, however this argument\n"
+"would be circular because the proof of `mul_comm` uses `mul_succ`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L03_succmul
+msgid "For all natural numbers $a$ and $b$, we have\n"
+"$(\\operatorname{succ}\\ a) \\times b = a\\times b + b$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L04_mulcomm
+msgid "mul_comm"
+msgstr ""
+
+#: Game.Levels.Multiplication.L04_mulcomm
+msgid "The first sub-boss of Multiplication World is `mul_comm x y : x * y = y * x`.\n"
+"\n"
+"When you've proved this theorem we will have \"spare\" proofs\n"
+"such as `zero_mul`, which is now easily deducible from `mul_zero`.\n"
+"But we'll keep hold of these proofs anyway, because it's convenient\n"
+"to have exactly the right tool for a job."
+msgstr ""
+
+#: Game.Levels.Multiplication.L04_mulcomm
+msgid "`mul_comm` is the proof that multiplication is commutative. More precisely,\n"
+"`mul_comm a b` is the proof that `a * b = b * a`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L04_mulcomm
+msgid "Multiplication is commutative."
+msgstr ""
+
+#: Game.Levels.Multiplication.L05_onemul
+msgid "one_mul"
+msgstr ""
+
+#: Game.Levels.Multiplication.L05_onemul
+msgid "You can prove $1\\times m=m$ in at least three ways.\n"
+"Either by induction, or by using `succ_mul`, or\n"
+"by using commutativity. Which do you think is quickest?"
+msgstr ""
+
+#: Game.Levels.Multiplication.L05_onemul
+msgid "`one_mul m` is the proof `1 * m = m`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L05_onemul
+msgid "For any natural number $m$, we have $ 1 \\times m = m$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L05_onemul
+msgid "Here's my solution:\n"
 "```\n"
-"exact and_intro h1.left h2.right\n"
-"```\n"
-"----\n"
-"```\n"
-"exact and_intro (and_left h1) (and_right h2)\n"
-"```\n"
-"---\n"
-"```\n"
-"exact ⟨h1.left, h2.right⟩\n"
+"rw [mul_comm, mul_one]\n"
+"rfl\n"
 "```"
 msgstr ""
 
-#: Game.Levels.AndIntro.L07_elim_III
-msgid "More Elimination"
+#: Game.Levels.Multiplication.L06_twomul
+msgid "two_mul"
 msgstr ""
 
-#: Game.Levels.AndIntro.L07_elim_III
-msgid "# An Emergency!\n"
-"Stop with the invites! Coco, your cat is stuck up a tree.\\\n"
-"\\\n"
-"The firefighters are here but they need your help figuring if they can get to the branch with Coco. They can see the entire tree and they know how to follow the branches by going left or right at each intersection. If they can do that, then they must be able to get to Coco.\n"
-"# Proposition Key:\n"
-"- C — The firefighters can get to Coco\n"
-"- L — The firefighters can get to some leaves\n"
-"# Goal\n"
-"Show evidence that the firefighters can get to Coco\n"
-"\n"
-"# `∧` associates to the right\n"
-"Check out the definition page for \"Precedence\" to learn a bit more.\n"
-"# Hint # 1\n"
-"If you hover your mouse over an operator in the proof state it will highlight the part of the expression that it operates **on**. Find the one that highlights the entire expression to see where the trunk of the tree is.\\\n"
-"\\\n"
-"Another approach is trial and error. Enter `have h₁ := h.right` to see `h₁: (L ∧ L) ∧ L` appear in your assumptions, which doesn't have `C` anywhere, indicating that this isn't the correct part of the tree. You can hit retry, then change that line to have `h₁ := h.left`. Then your assumptions will have `h₁: L ∧ ((L ∧ C) ∧ L) ∧ L ∧ L ∧ L`, which has the `C` somewhere.\n"
-"# Hint # 2\n"
-"The |**Show more help!**| button below will display the expression for you. Beware, the boss level will not come with this option."
+#: Game.Levels.Multiplication.L06_twomul
+msgid "This level is more important than you think; it plays\n"
+"a useful role when battling a big boss later on."
 msgstr ""
 
-#: Game.Levels.AndIntro.L07_elim_III
-msgid "Navigate the tree"
+#: Game.Levels.Multiplication.L06_twomul
+msgid "`two_mul m` is the proof that `2 * m = m + m`."
 msgstr ""
 
-#: Game.Levels.AndIntro.L07_elim_III
-msgid "h.left.right.left.left.right"
+#: Game.Levels.Multiplication.L06_twomul
+msgid "For any natural number $m$, we have $ 2 \\times m = m+m$."
 msgstr ""
 
-#: Game.Levels.AndIntro.L07_elim_III
-msgid "Amazing! You've helped save your cat!\n"
-"\n"
-"----\n"
-"Here are three solutions, are you able to follow each of them?\n"
+#: Game.Levels.Multiplication.L06_twomul
+msgid "Here's my solution:\n"
 "```\n"
-"have h₁ := and_left h\n"
-"have h₂ := and_right h₁\n"
-"have h₃ := and_left h₂\n"
-"have h₄ := and_left h₃\n"
-"have h₅ := and_right h₄\n"
-"exact h₅\n"
-"```\n"
-"or\n"
-"```\n"
-"exact and_right (and_left (and_left (and_right (and_left h))))\n"
-"```\n"
-"or\n"
-"```\n"
-"exact h.left.right.left.left.right\n"
+"rw [two_eq_succ_one, succ_mul, one_mul]\n"
+"rfl\n"
 "```"
 msgstr ""
 
-#: Game.Levels.AndIntro.L08_masterand
-msgid "Rearranging Boxes"
+#: Game.Levels.Multiplication.L07_muladd
+msgid "mul_add"
 msgstr ""
 
-#: Game.Levels.AndIntro.L08_masterand
-msgid "# BOSS LEVEL\n"
-"If you can finish this level, you've certainly mastered the `∧`. There's no deep logical tricks in this boss level, you've just got to know how to work at properly unnesting and then building the right Proposition.\\\n"
-"\\\n"
-"Using the `have` tactic, you can break this task down into digestible chunks. The top right of the screen has a button that toggles between editor mode and typewriter mode. Editor mode is often a bit easier to work with as it allows you to enter multi-line expressions or edit earlier lines seamlessly. While in editor mode, the proof state will change depending on which line your caret is on.\n"
-"# Rearranging Boxes\n"
-"Finally, a bunch of your invites have returned with RSVPs. The mailman has delivered them in a big box. Make a list of the expected attendees so far.\n"
-"# Proposition Key:\n"
-"- A — **A**larfil is coming to the party\n"
-"- C — **C**yna** is coming to the party\n"
-"- I — **I**lyn** is coming to the party\n"
-"- O — **O**rin** is coming to the party\n"
-"- P — **P**ippin** is coming to the party\n"
-"- S — **S**ybeth** is coming to the party\n"
-"- U — **U**riel** is coming to the party"
+#: Game.Levels.Multiplication.L07_muladd
+msgid "Our next goal is \"left and right distributivity\",\n"
+"meaning $a(b+c)=ab+ac$ and $(b+c)a=ba+ca$. Rather than\n"
+"these slightly pompous names, the name of the proofs\n"
+"in Lean are descriptive. Let's start with\n"
+"`mul_add a b c`, the proof of `a * (b + c) = a * b + a * c`.\n"
+"Note that the left hand side contains a multiplication\n"
+"and then an addition."
 msgstr ""
 
-#: Game.Levels.AndIntro.L08_masterand
-msgid "Take apart and build evidence"
-msgstr ""
-
-#: Game.Levels.AndIntro.L08_masterand
-msgid "Amazing! You've mastered \"AND\".\n"
+#: Game.Levels.Multiplication.L07_muladd
+msgid "Multiplication distributes\n"
+"over addition on the left.\n"
 "\n"
-"---\n"
+"`mul_add a b c` is the proof that `a * (b + c) = a * b + a * c`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "Multiplication is distributive over addition on the left.\n"
+"In other words, for all natural numbers $a$, $b$ and $c$, we have\n"
+"$a(b + c) = ab + ac$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "You can do induction on any of the three variables. Some choices\n"
+"are harder to push through than others. Can you do the inductive step in\n"
+"5 rewrites only?"
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "Induction on `a` is the most troublesome, then `b`,\n"
+"and `c` is the easiest."
+msgstr ""
+
+#: Game.Levels.Multiplication.L07_muladd
+msgid "Here's my solution:\n"
 "```\n"
-"-- 3/4 of the things you need are one step away\n"
-"have psa := h.left\n"
+"induction c with d hd\n"
+"rw [add_zero, mul_zero, add_zero]\n"
+"rfl\n"
+"rw [add_succ, mul_succ, hd, mul_succ, add_assoc]\n"
+"rfl\n"
+"```\n"
 "\n"
-"-- Evidence for C takes some digging\n"
-"have c := h.right.right.left.left\n"
-"\n"
-"-- build C ∧ P ∧ S\n"
-"have cps := and_intro c psa.left\n"
-"\n"
-"-- exibit A ∧ C ∧ P ∧ S\n"
-"exact and_intro psa.right cps\n"
+"Inducting on `a` or `b` also works, but might take longer."
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_addmul
+msgid "add_mul"
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_addmul
+msgid "`add_mul` is just as fiddly to prove by induction; but there's a trick\n"
+"which avoids it. Can you spot it?"
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_addmul
+msgid "`add_mul a b c` is a proof that $(a+b)c=ac+bc$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_addmul
+msgid "Addition is distributive over multiplication.\n"
+"In other words, for all natural numbers $a$, $b$ and $c$, we have\n"
+"$(a + b) \\times c = ac + bc$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_addmul
+msgid "Here's my proof:\n"
+"```\n"
+"rw [mul_comm, mul_add]\n"
+"repeat rw [mul_comm c]\n"
+"rfl\n"
 "```"
 msgstr ""
 
-#: Game.Levels.AndIntro
-msgid "∧ Tutorial: Party Invites"
+#: Game.Levels.Multiplication.L09_mulassoc
+msgid "mul_assoc"
 msgstr ""
 
-#: Game.Levels.AndIntro
-msgid "# Let the festivities commence!\n"
-"You're hosting your yearly soirée, and it's time to start planning! Last year your planning went so poorly that nobody showed up. Not for lack of trying though, they just wound up at a number of bewildering addresses. The silver lining was that all your friends were safe from the fire when, accidentally, you burned down your entire apartment building.\\\n"
-"\\\n"
-"This year will be different‼ This year, if you want to be sure that there will be fancy cheeses, you had better have evidence that somebody is bringing the cheese platter.\n"
+#: Game.Levels.Multiplication.L09_mulassoc
+msgid "We now have enough to prove that multiplication is associative,\n"
+"the boss level of multiplication world. Good luck!"
+msgstr ""
+
+#: Game.Levels.Multiplication.L09_mulassoc
+msgid "`mul_assoc a b c` is a proof that `(a * b) * c = a * (b * c)`.\n"
 "\n"
-"World 1: **Party Invites** is a tutorial world that is meant to introduce you to conjunction — the logical “and”. The symbol used to denote an “and” looks like “`∧`”. You'll learn to how to use evidence to create an `∧` and also how to get evidence out when it's been `∧`ed together.\\\n"
-"\\\n"
-"The real-world analogues for evidence of `A ∧ B` might be a box with evidence for `A` and evidence for `B`, an audio recording with both pieces of evidence, or a tree with evidence in its branches.\\\n"
-"\\\n"
-"While real-world analogues can be anything, the abstract machinery used in this game will always be the same. In the case of the `∧` operator, the game stores the associated evidence in a tuple data structure.\\\n"
-"\\\n"
-"The details aren't important. Each level will be encoded for you into the symbols of a proof state. The puzzle, at its core, will be about symbol manipulation. Much of the text is there for added fun and flair.\n"
+"Note that when Lean says `a * b * c` it means `(a * b) * c`.\n"
 "\n"
-"# **Aside**: Expressions\n"
-"If you're coming at this as a puzzle, part of the goal of the tutotial worlds is to teach you how to form expressions and to think about what they evaluate to. Consider how how these expressions all evaluate to the same number:\n"
-"```\n"
-"4 + 6\n"
-"(4) + 6\n"
-"(4) + (6)\n"
-"3 + 1 + 6\n"
-"3 + (1 + 6)\n"
-"4 + 4 + 2\n"
-"(4 * 2) + 2\n"
-"```\n"
-"and how some things which may look like expressions really are not:\n"
-"```\n"
-"4 6\n"
-"4 +\n"
-"4 (++) 6\n"
-"(4 +) 6\n"
-"```\n"
-"The expressions that this game is asking you to form are mostly in prefix form. In context, this means the operation is given a textual name instead of a symbol and the parameters are separated by spaces **after** the name. For example; the above expressions may look like:\n"
-"```\n"
-"add 4 6\n"
-"add (4) 6\n"
-"add (4) (6)\n"
-"add (add 3 1) 6\n"
-"add 3 (add 1 6)\n"
-"add (add 4 4) 2\n"
-"add (mul 4 2) 2\n"
-"```\n"
-"We're not using expressions to express numbers, but many of the concepts do carry over. Instead of numbers, we're working with logical inferences."
+"Note that `(a * b) * c = a * (b * c)` cannot be proved by \\\"pure thought\\\":\n"
+"for example subtraction is not associative, as `(6 - 2) - 1` is not\n"
+"equal to `6 - (2 - 1)`."
+msgstr ""
+
+#: Game.Levels.Multiplication.L09_mulassoc
+msgid "Multiplication is associative.\n"
+"In other words, for all natural numbers $a$, $b$ and $c$, we have\n"
+"$(ab)c = a(bc)$."
+msgstr ""
+
+#: Game.Levels.Multiplication.L09_mulassoc
+msgid "A passing mathematician notes that you've proved\n"
+"that the natural numbers are a commutative semiring.\n"
+"\n"
+"If you want to begin your journey to the final boss, head for Power World."
+msgstr ""
+
+#: Game.Levels.Multiplication
+msgid "Multiplication World"
+msgstr ""
+
+#: Game.Levels.Multiplication
+msgid "How should we define `37 * x`? Just like addition, we need to give definitions\n"
+"when $x=0$ and when $x$ is a successor.\n"
+"\n"
+"The zero case is easy: we define `37 * 0` to be `0`. Now say we know\n"
+"`37 * d`. What should `37 * succ d` be? Well, that's $(d+1)$ $37$s,\n"
+"so it should be `37 * d + 37`.\n"
+"\n"
+"Here are the definitions in Lean.\n"
+"\n"
+"  * `mul_zero a : a * 0 = 0`\n"
+"  * `mul_succ a d : a * succ d = a * d + a`\n"
+"\n"
+"In this world, we must not only prove facts about multiplication like `a * b = b * a`,\n"
+"we must also prove facts about how multiplication interacts with addition, like `a * (b + c) = a * b + a * c`.\n"
+"Let's get started."
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "zero_pow_zero"
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "Mathematicians sometimes debate what `0 ^ 0` is;\n"
+"the answer depends, of course, on your definitions. In this\n"
+"game, `0 ^ 0 = 1`. See if you can prove it.\n"
+"\n"
+"Check out the *Pow* tab in your list of theorems\n"
+"to see the new proofs which are available."
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "`Pow a b`, with notation `a ^ b`, is the usual\n"
+"  exponentiation of natural numbers. Internally it is\n"
+"  defined via two axioms:\n"
+"\n"
+"  * `pow_zero a : a ^ 0 = 1`\n"
+"\n"
+"  * `pow_succ a b : a ^ succ b = a ^ b * a`\n"
+"\n"
+"Note in particular that `0 ^ 0 = 1`."
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "`pow_zero a : a ^ 0 = 1` is one of the two axioms\n"
+"defining exponentiation in this game."
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "Mathematicians sometimes argue that `0 ^ 0 = 0` is also\n"
+"a good convention. But it is not a good convention in this\n"
+"game; all the later levels come out beautifully with the\n"
+"convention that `0 ^ 0 = 1`."
+msgstr ""
+
+#: Game.Levels.Power.L01_zeropown_I
+msgid "$0 ^ 0 = 1$"
+msgstr ""
+
+#: Game.Levels.Power.L02_zeropown_II
+msgid "zero_pow_succ"
+msgstr ""
+
+#: Game.Levels.Power.L02_zeropown_II
+msgid "We've just seen that `0 ^ 0 = 1`, but if `n`\n"
+"is a successor, then `0 ^ n = 0`. We prove that here."
+msgstr ""
+
+#: Game.Levels.Power.L02_zeropown_II
+msgid "`pow_succ a b : a ^ (succ b) = a ^ b * a` is one of the\n"
+"two axioms defining exponentiation in this game."
+msgstr ""
+
+#: Game.Levels.Power.L02_zeropown_II
+msgid "Although $0^0=1$ in this game, $0^n=0$ if $n>0$, i.e., if\n"
+"$n$ is a successor."
+msgstr ""
+
+#: Game.Levels.Power.L02_zeropown_II
+msgid "For all numbers $m$, $0 ^{\\operatorname{succ} (m)} = 0$."
+msgstr ""
+
+#: Game.Levels.Power.L03_powone
+msgid "pow_one"
+msgstr ""
+
+#: Game.Levels.Power.L03_powone
+msgid "`pow_one a` says that `a ^ 1 = a`.\n"
+"\n"
+"Note that this is not quite true by definition: `a ^ 1` is\n"
+"defined to be `a ^ 0 * a` so it's `1 * a`, and to prove\n"
+"that this is equal to `a` you need to use induction somewhere."
+msgstr ""
+
+#: Game.Levels.Power.L03_powone
+msgid "For all naturals $a$, $a ^ 1 = a$."
+msgstr ""
+
+#: Game.Levels.Power.L04_onepow
+msgid "one_pow"
+msgstr ""
+
+#: Game.Levels.Power.L04_onepow
+msgid "`one_pow n` is a proof that $1^n=1$."
+msgstr ""
+
+#: Game.Levels.Power.L04_onepow
+msgid "For all naturals $m$, $1 ^ m = 1$."
+msgstr ""
+
+#: Game.Levels.Power.L05_powtwo
+msgid "pow_two"
+msgstr ""
+
+#: Game.Levels.Power.L05_powtwo
+msgid "Note: this lemma will be useful for the final boss!"
+msgstr ""
+
+#: Game.Levels.Power.L05_powtwo
+msgid "`pow_two a` says that `a ^ 2 = a * a`."
+msgstr ""
+
+#: Game.Levels.Power.L05_powtwo
+msgid "For all naturals $a$, $a ^ 2 = a \\times a$."
+msgstr ""
+
+#: Game.Levels.Power.L06_powadd
+msgid "pow_add"
+msgstr ""
+
+#: Game.Levels.Power.L06_powadd
+msgid "Let's now begin our approach to the final boss,\n"
+"by proving some more subtle facts about powers."
+msgstr ""
+
+#: Game.Levels.Power.L06_powadd
+msgid "`pow_add a m n` is a proof that $a^{m+n}=a^ma^n.$"
+msgstr ""
+
+#: Game.Levels.Power.L06_powadd
+msgid "For all naturals $a$, $m$, $n$, we have $a^{m + n} = a ^ m  a ^ n$."
+msgstr ""
+
+#: Game.Levels.Power.L07_mulpow
+msgid "mul_pow"
+msgstr ""
+
+#: Game.Levels.Power.L07_mulpow
+msgid "The music gets ever more dramatic, as we explore\n"
+"the interplay between exponentiation and multiplication.\n"
+"\n"
+"If you're having trouble exchanging the right `a * b`\n"
+"because `rw [mul_comm]` swaps the wrong multiplication,\n"
+"then read the documentation of `rw` for tips on how to fix this."
+msgstr ""
+
+#: Game.Levels.Power.L07_mulpow
+msgid "`mul_pow a b n` is a proof that $(ab)^n=a^nb^n.$"
+msgstr ""
+
+#: Game.Levels.Power.L07_mulpow
+msgid "For all naturals $a$, $b$, $n$, we have $(ab) ^ n = a ^ nb ^ n$."
+msgstr ""
+
+#: Game.Levels.Power.L08_powpow
+msgid "pow_pow"
+msgstr ""
+
+#: Game.Levels.Power.L08_powpow
+msgid "One of the best named levels in the game, a savage `pow_pow`\n"
+"sub-boss appears as the music reaches a frenzy. What\n"
+"else could there be to prove about powers after this?"
+msgstr ""
+
+#: Game.Levels.Power.L08_powpow
+msgid "`pow_pow a m n` is a proof that $(a^m)^n=a^{mn}.$"
+msgstr ""
+
+#: Game.Levels.Power.L08_powpow
+msgid "For all naturals $a$, $m$, $n$, we have $(a ^ m) ^ n = a ^ {mn}$."
+msgstr ""
+
+#: Game.Levels.Power.L08_powpow
+msgid "The music dies down. Is that it?\n"
+"\n"
+"Course it isn't, you can\n"
+"clearly see that there are two levels left.\n"
+"\n"
+"A passing mathematician says that mathematicians don't have a name\n"
+"for the structure you just constructed. You feel cheated.\n"
+"\n"
+"Suddenly the music starts up again. This really is the final boss."
+msgstr ""
+
+#: Game.Levels.Power.L09_addsq
+msgid "add_sq"
+msgstr ""
+
+#: Game.Levels.Power.L09_addsq
+msgid "[final boss music]"
+msgstr ""
+
+#: Game.Levels.Power.L09_addsq
+msgid "`add_sq a b` is the statement that $(a+b)^2=a^2+b^2+2ab.$"
+msgstr ""
+
+#: Game.Levels.Power.L09_addsq
+msgid "For all numbers $a$ and $b$, we have\n"
+"$$(a+b)^2=a^2+b^2+2ab.$$"
+msgstr ""
+
+#: Game.Levels.Power.L09_addsq
+msgid "It's all over! You have proved a theorem which has tripped up\n"
+"schoolkids for generations (some of them think $(a+b)^2=a^2+b^2$:\n"
+"this is \"the freshman's dream\").\n"
+"\n"
+"How many rewrites did you use? I can do it in 12.\n"
+"\n"
+"But wait! This boss is stirring...and mutating into a second more powerful form!"
+msgstr ""
+
+#: Game.Levels.Power.L10_FLT
+msgid "Fermat's Last Theorem"
+msgstr ""
+
+#: Game.Levels.Power.L10_FLT
+msgid "We now have enough to state a mathematically accurate, but slightly\n"
+"clunky, version of Fermat's Last Theorem.\n"
+"\n"
+"Fermat's Last Theorem states that if $x,y,z>0$ and $m \\geq 3$ then $x^m+y^m\\not =z^m$.\n"
+"If you didn't do inequality world yet then we can't talk about $m \\geq 3$,\n"
+"so we have to resort to the hack of using `n + 3` for `m`,\n"
+"which guarantees it's big enough. Similarly instead of `x > 0` we\n"
+"use `a + 1`.\n"
+"\n"
+"This level looks superficially like other levels we have seen,\n"
+"but the shortest solution known to humans would translate into\n"
+"many millions of lines of Lean code. The author of this game,\n"
+"Kevin Buzzard, is working on translating the proof by Wiles\n"
+"and Taylor into Lean, although this task will take many years.\n"
+"\n"
+"## CONGRATULATIONS!\n"
+"\n"
+"You've finished the main quest of the natural number game!\n"
+"If you would like to learn more about how to use Lean to\n"
+"prove theorems in mathematics, then take a look\n"
+"at [Mathematics In Lean](https://leanprover-community.github.io/mathematics_in_lean/),\n"
+"an interactive textbook which you can read in your browser,\n"
+"and which explains how to work with many more mathematical concepts in Lean."
+msgstr ""
+
+#: Game.Levels.Power.L10_FLT
+msgid "`xyzzy` is an ancient magic spell, believed to be the origin of the\n"
+"modern word `sorry`. The game won't complain - or notice - if you\n"
+"prove anything with `xyzzy`."
+msgstr ""
+
+#: Game.Levels.Power.L10_FLT
+msgid "For all naturals $a$ $b$ $c$ and $n$, we have\n"
+"$$(a+1)^{n+3}+(b+1)^{n+3}\\not=(c+1)^{n+3}.$$"
+msgstr ""
+
+#: Game.Levels.Power.L10_FLT
+msgid "Congratulations! You have proved Fermat's Last Theorem!\n"
+"\n"
+"Either that, or you used magic..."
+msgstr ""
+
+#: Game.Levels.Power
+msgid "Power World"
+msgstr ""
+
+#: Game.Levels.Power
+msgid "This world introduces exponentiation. If you want to define `37 ^ n`\n"
+"then, as always, you will need to know what `37 ^ 0` is, and\n"
+"what `37 ^ (succ d)` is, given only `37 ^ d`.\n"
+"\n"
+"You can probably guess the names of the general theorems:\n"
+"\n"
+"  * `pow_zero (a : ℕ) : a ^ 0 = 1`\n"
+"  * `pow_succ (a b : ℕ) : a ^ succ b = a ^ b * a`\n"
+"\n"
+"Using only these, can you get past the final boss level?\n"
+"\n"
+"The levels in this world were designed by Sian Carey, a UROP student\n"
+"at Imperial College London, funded by a Mary Lister McCammon Fellowship\n"
+"in the summer of 2019. Thanks to Sian and also thanks to Imperial\n"
+"College for funding her."
 msgstr ""
 
 #: Game
@@ -3244,6 +3099,7 @@ msgid "# An Intro to Lean by the University of Hyperion\n"
 "* Power: Defining Exponentiation to (sorta) prove FLT.\n"
 "### Logic\n"
 "* Implication: Proving the converse, $2 + 2 ≠ 5$.\n"
+"* ∧ Intro: Introducion to simple logic,\n"
 "### Automation\n"
 "* Algorithm: Automating some of our proofs."
 msgstr ""
