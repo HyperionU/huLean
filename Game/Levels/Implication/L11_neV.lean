@@ -36,5 +36,7 @@ developed enough material to make it an adequate calculator. In Algorithm
 World, a more computer-sciency world, we will develop machinery which makes
 questions like this much easier, and goals like $20 + 20 ≠ 41$ feasible.
 Alternatively you can do more mathematics in Advanced Addition World, where we prove
-the lemmas needed to get a working theory of inequalities. Click \"Leave World\" and
+the lemmas needed to get a working theory of inequalities.
+Or, you could continue on your journey diving in to Mathematical Logic in Logic World.
+Click \"Leave World\" and
 decide your route."

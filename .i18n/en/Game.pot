@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Sun Oct 27 23:54:19 2024\n"
+"POT-Creation-Date: Mon Oct 28 02:10:15 2024\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -3084,6 +3084,200 @@ msgid "This world introduces exponentiation. If you want to define `37 ^ n`\n"
 "College for funding her."
 msgstr ""
 
+#: Game.Levels.Logic.L01_impid
+msgid "The Identity"
+msgstr ""
+
+#: Game.Levels.Logic.L01_impid
+msgid "# Logic in Lean: implies (`→`)\n"
+"\n"
+"We learn about propositions, and implications `P → Q` between them. You can get\n"
+"this arrow by typing `	o` or ``. Mathematicians usually write the\n"
+"implication arrow as `P ⇒ Q` but Lean prefers a single arrow.\n"
+"\n"
+"## The absolute basics\n"
+"\n"
+"`P : Prop` means that `P` is a true-false statement. `h : P` means\n"
+"that `h` is a proof that `P` is true, or you can regard `h` as an\n"
+"assumption that `P` is true; logically these are the same. Stuff above\n"
+"the `⊢` symbol is your assumptions. The statement to the right of it is\n"
+"the goal. Your job is to prove the goal from the assumptions.\n"
+"\n"
+"## Tactics you will need\n"
+"\n"
+"To solve the next five levels (and first five levels in Advanced Logic World), you will need to know how to use the\n"
+"following tactics:\n"
+"\n"
+"* `intro`\n"
+"* `exact`\n"
+"* `apply`"
+msgstr ""
+
+#: Game.Levels.Logic.L01_impid
+msgid "For any proposition P, P → P"
+msgstr ""
+
+#: Game.Levels.Logic.L01_impid
+msgid "Every proposition implies itself."
+msgstr ""
+
+#: Game.Levels.Logic.L01_impid
+msgid "Note that `→` is not associative: in general `P → (Q → R)` and `(P → Q) → R`\n"
+"might not be equivalent. This is like subtraction on numbers -- in general\n"
+"`a - (b - c)` and `(a - b) - c` might not be equal.\n"
+"\n"
+"So if we write `P → Q → R` then we'd better know what this means.\n"
+"The convention in Lean is that it means `P → (Q → R)`. If you think\n"
+"about it, this means that to deduce `R` you will need to prove both `P`\n"
+"and `Q`. In general to prove `P1 → P2 → P3 → ... Pn` you can assume\n"
+"`P1`, `P2`,...,`P(n-1)` and then you have to prove `Pn`."
+msgstr ""
+
+#: Game.Levels.Logic.L02_imp
+msgid "How Implication Works"
+msgstr ""
+
+#: Game.Levels.Logic.L02_imp
+msgid "If we write `P → Q → R` then we'd better know what this means.\n"
+"The convention in Lean is that it means `P → (Q → R)`. If you think\n"
+"about it, this means that to deduce `R` you will need to prove both `P`\n"
+"and `Q`. In general to prove `P1 → P2 → P3 → ... Pn` you can assume\n"
+"`P1`, `P2`,...,`P(n-1)` and then you have to prove `Pn`."
+msgstr ""
+
+#: Game.Levels.Logic.L02_imp
+msgid "For any proposition P, P → P"
+msgstr ""
+
+#: Game.Levels.Logic.L02_imp
+msgid "P → (Q → P)"
+msgstr ""
+
+#: Game.Levels.Logic.L02_imp
+msgid "How could we unravel this?"
+msgstr ""
+
+#: Game.Levels.Logic.L02_imp
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.L03_mp
+msgid "Modus Ponens"
+msgstr ""
+
+#: Game.Levels.Logic.L03_mp
+msgid "If we know `P`, and we also know `P → Q`, we can deduce `Q`.\n"
+"This is called Modus Ponens by logicians.\n"
+"Let's try proving this!"
+msgstr ""
+
+#: Game.Levels.Logic.L03_mp
+msgid "If `P` and `P → Q` are true, we can deduce that `Q` is true."
+msgstr ""
+
+#: Game.Levels.Logic.L03_mp
+msgid "Modus Ponens: P → (P → Q) → Q"
+msgstr ""
+
+#: Game.Levels.Logic.L03_mp
+msgid "How could we unravel this?"
+msgstr ""
+
+#: Game.Levels.Logic.L03_mp
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.L04_trans
+msgid "Transitivity of →"
+msgstr ""
+
+#: Game.Levels.Logic.L04_trans
+msgid "`→` is transitive. That is, if `P → Q` and `Q → R` are true, then\n"
+"so is `P → R`.\n"
+"How could this be proven?"
+msgstr ""
+
+#: Game.Levels.Logic.L04_trans
+msgid "If we assume `P → Q` and `Q → R`, `∴ P → R` must be true"
+msgstr ""
+
+#: Game.Levels.Logic.L04_trans
+msgid "Transitivity of →: `(P → Q) → (Q → R) → P → R`"
+msgstr ""
+
+#: Game.Levels.Logic.L04_trans
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.L05_impmb
+msgid "→ Mini Boss"
+msgstr ""
+
+#: Game.Levels.Logic.L05_impmb
+msgid "If `h : P → Q → R` with goal `⊢ R` and you `apply h`, you'll get\n"
+"two goals! Note that tactics operate on only the first goal."
+msgstr ""
+
+#: Game.Levels.Logic.L05_impmb
+msgid "Continuation: `(P → Q → R) → (P → Q) → (P → R)`"
+msgstr ""
+
+#: Game.Levels.Logic.L05_impmb
+msgid "You have finished the Basics world!\n"
+"You've now seen some of the tactics you need to beat the final boss of logic.\n"
+"You can continue the journey towards this boss by entering Proposition World.\n"
+"\n"
+"Alternatively, you could dive in more to logical Implication with Advanced LI World.\n"
+"\n"
+"Click \"Leave World\" and make your choice."
+msgstr ""
+
+#: Game.Levels.Logic
+msgid "Logic World"
+msgstr ""
+
+#: Game.Levels.Logic
+msgid "By 'logic' here we mean the study of propositions. A proposition is a\n"
+"true/false statement. For example 2+2=4, 2+2=5, and the statement\n"
+"of the Riemann Hypothesis are all propositions.\n"
+"\n"
+"In the logic part of the Introduction to Lean,\n"
+"we learn about how to do basic mathematics with propositions. Basic mathematics\n"
+"with numbers involves learning about how functions like `+`, `-`, `*` and `/`\n"
+"interact with numbers like 0, 1, 2, .... Basic mathematics with propositions involves learning about how\n"
+"functions like `→`, `¬`, `∧`, `↔` and `∨` interact with\n"
+"propositions like `true` and `false`.\n"
+"\n"
+"In Lean we can prove mathematical theorems using *tactics* such as `intro`\n"
+"and `apply`. In this section, we will\n"
+"learn how to use about ten of Lean's basic tactics.\n"
+"\n"
+"## Lean's notation for logic.\n"
+"\n"
+"In Lean, `P : Prop` means `P` is a proposition, and `P → Q` is the\n"
+"proposition that `P` implies `Q`. Note that Lean uses a single arrow `→`\n"
+"rather than the double arrow `⇒`.\n"
+"\n"
+"The notation `h : P` means any of the following equivalent things:\n"
+"\n"
+"* `h` is a proof of `P`\n"
+"* `h` is the assumption that `P` is true\n"
+"* `P` is true, and this fact is called `h`\n"
+"\n"
+"Here `h` is just a variable name. We will often call proofs of `P` things like `hP`\n"
+"but you can call them pretty much anything.\n"
+"\n"
+"WARNING: do not confuse `P : Prop` with `hP : P`. The former just means\n"
+"that `P` is a true-false statement; the latter means that it is a true\n"
+"statement.\n"
+"\n"
+"# Tactics you will Need:\n"
+"\n"
+"To do logic problems in Lean you need to know some basic tactics.\n"
+"Technically, when applying several tactics, you should put a comma\n"
+"after each one. You don't need to here."
+msgstr ""
+
 #: Game
 msgid "Intro to Lean"
 msgstr ""
@@ -3099,7 +3293,6 @@ msgid "# An Intro to Lean by the University of Hyperion\n"
 "* Power: Defining Exponentiation to (sorta) prove FLT.\n"
 "### Logic\n"
 "* Implication: Proving the converse, $2 + 2 ≠ 5$.\n"
-"* ∧ Intro: Introducion to simple logic,\n"
 "### Automation\n"
 "* Algorithm: Automating some of our proofs."
 msgstr ""
