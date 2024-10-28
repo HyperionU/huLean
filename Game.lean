@@ -5,7 +5,8 @@ import Game.Levels.Multiplication
 import Game.Levels.Implication
 import Game.Levels.Power
 import Game.Levels.Algorithm
-import Game.Levels.Logic
+import Game.Levels.LogicImp
+import Game.Levels.AdvLogicImp
 
 -- Here's what we'll put on the title screen
 Title "Intro to Lean"

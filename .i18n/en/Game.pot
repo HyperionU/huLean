@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Mon Oct 28 02:10:15 2024\n"
+"POT-Creation-Date: Mon Oct 28 04:56:43 2024\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -1852,7 +1852,9 @@ msgid "Here's my proof:\n"
 "World, a more computer-sciency world, we will develop machinery which makes\n"
 "questions like this much easier, and goals like $20 + 20 ≠ 41$ feasible.\n"
 "Alternatively you can do more mathematics in Advanced Addition World, where we prove\n"
-"the lemmas needed to get a working theory of inequalities. Click \"Leave World\" and\n"
+"the lemmas needed to get a working theory of inequalities.\n"
+"Or, you could continue on your journey diving in to Mathematical Logic in Logic World.\n"
+"Click \"Leave World\" and\n"
 "decide your route."
 msgstr ""
 
@@ -3084,11 +3086,11 @@ msgid "This world introduces exponentiation. If you want to define `37 ^ n`\n"
 "College for funding her."
 msgstr ""
 
-#: Game.Levels.Logic.L01_impid
+#: Game.Levels.Logic.Implication.L01_impid
 msgid "The Identity"
 msgstr ""
 
-#: Game.Levels.Logic.L01_impid
+#: Game.Levels.Logic.Implication.L01_impid
 msgid "# Logic in Lean: implies (`→`)\n"
 "\n"
 "We learn about propositions, and implications `P → Q` between them. You can get\n"
@@ -3113,15 +3115,11 @@ msgid "# Logic in Lean: implies (`→`)\n"
 "* `apply`"
 msgstr ""
 
-#: Game.Levels.Logic.L01_impid
-msgid "For any proposition P, P → P"
-msgstr ""
-
-#: Game.Levels.Logic.L01_impid
+#: Game.Levels.Logic.Implication.L01_impid
 msgid "Every proposition implies itself."
 msgstr ""
 
-#: Game.Levels.Logic.L01_impid
+#: Game.Levels.Logic.Implication.L01_impid
 msgid "Note that `→` is not associative: in general `P → (Q → R)` and `(P → Q) → R`\n"
 "might not be equivalent. This is like subtraction on numbers -- in general\n"
 "`a - (b - c)` and `(a - b) - c` might not be equal.\n"
@@ -3133,11 +3131,11 @@ msgid "Note that `→` is not associative: in general `P → (Q → R)` and `(P 
 "`P1`, `P2`,...,`P(n-1)` and then you have to prove `Pn`."
 msgstr ""
 
-#: Game.Levels.Logic.L02_imp
+#: Game.Levels.Logic.Implication.L02_imp
 msgid "How Implication Works"
 msgstr ""
 
-#: Game.Levels.Logic.L02_imp
+#: Game.Levels.Logic.Implication.L02_imp
 msgid "If we write `P → Q → R` then we'd better know what this means.\n"
 "The convention in Lean is that it means `P → (Q → R)`. If you think\n"
 "about it, this means that to deduce `R` you will need to prove both `P`\n"
@@ -3145,84 +3143,76 @@ msgid "If we write `P → Q → R` then we'd better know what this means.\n"
 "`P1`, `P2`,...,`P(n-1)` and then you have to prove `Pn`."
 msgstr ""
 
-#: Game.Levels.Logic.L02_imp
-msgid "For any proposition P, P → P"
-msgstr ""
-
-#: Game.Levels.Logic.L02_imp
+#: Game.Levels.Logic.Implication.L02_imp
 msgid "P → (Q → P)"
 msgstr ""
 
-#: Game.Levels.Logic.L02_imp
+#: Game.Levels.Logic.Implication.L02_imp
 msgid "How could we unravel this?"
 msgstr ""
 
-#: Game.Levels.Logic.L02_imp
+#: Game.Levels.Logic.Implication.L02_imp
 msgid ""
 msgstr ""
 
-#: Game.Levels.Logic.L03_mp
+#: Game.Levels.Logic.Implication.L03_mp
 msgid "Modus Ponens"
 msgstr ""
 
-#: Game.Levels.Logic.L03_mp
+#: Game.Levels.Logic.Implication.L03_mp
 msgid "If we know `P`, and we also know `P → Q`, we can deduce `Q`.\n"
 "This is called Modus Ponens by logicians.\n"
 "Let's try proving this!"
 msgstr ""
 
-#: Game.Levels.Logic.L03_mp
-msgid "If `P` and `P → Q` are true, we can deduce that `Q` is true."
-msgstr ""
-
-#: Game.Levels.Logic.L03_mp
+#: Game.Levels.Logic.Implication.L03_mp
 msgid "Modus Ponens: P → (P → Q) → Q"
 msgstr ""
 
-#: Game.Levels.Logic.L03_mp
+#: Game.Levels.Logic.Implication.L03_mp
 msgid "How could we unravel this?"
 msgstr ""
 
-#: Game.Levels.Logic.L03_mp
+#: Game.Levels.Logic.Implication.L03_mp
 msgid ""
 msgstr ""
 
-#: Game.Levels.Logic.L04_trans
+#: Game.Levels.Logic.Implication.L04_trans
 msgid "Transitivity of →"
 msgstr ""
 
-#: Game.Levels.Logic.L04_trans
+#: Game.Levels.Logic.Implication.L04_trans
 msgid "`→` is transitive. That is, if `P → Q` and `Q → R` are true, then\n"
 "so is `P → R`.\n"
 "How could this be proven?"
 msgstr ""
 
-#: Game.Levels.Logic.L04_trans
-msgid "If we assume `P → Q` and `Q → R`, `∴ P → R` must be true"
-msgstr ""
-
-#: Game.Levels.Logic.L04_trans
+#: Game.Levels.Logic.Implication.L04_trans
 msgid "Transitivity of →: `(P → Q) → (Q → R) → P → R`"
 msgstr ""
 
-#: Game.Levels.Logic.L04_trans
+#: Game.Levels.Logic.Implication.L04_trans
+msgid "Transitivity of →: `(P → Q) → (Q → R) → P → R`"
+msgstr ""
+
+#: Game.Levels.Logic.Implication.L04_trans
 msgid ""
 msgstr ""
 
-#: Game.Levels.Logic.L05_impmb
+#: Game.Levels.Logic.Implication.L05_impmb
 msgid "→ Mini Boss"
 msgstr ""
 
-#: Game.Levels.Logic.L05_impmb
+#: Game.Levels.Logic.Implication.L05_impmb
 msgid "If `h : P → Q → R` with goal `⊢ R` and you `apply h`, you'll get\n"
 "two goals! Note that tactics operate on only the first goal."
 msgstr ""
 
-#: Game.Levels.Logic.L05_impmb
+#: Game.Levels.Logic.Implication.L05_impmb
 msgid "Continuation: `(P → Q → R) → (P → Q) → (P → R)`"
 msgstr ""
 
-#: Game.Levels.Logic.L05_impmb
+#: Game.Levels.Logic.Implication.L05_impmb
 msgid "You have finished the Basics world!\n"
 "You've now seen some of the tactics you need to beat the final boss of logic.\n"
 "You can continue the journey towards this boss by entering Proposition World.\n"
@@ -3232,11 +3222,149 @@ msgid "You have finished the Basics world!\n"
 "Click \"Leave World\" and make your choice."
 msgstr ""
 
-#: Game.Levels.Logic
-msgid "Logic World"
+#: Game.Levels.LogicImp
+msgid "Logic I: →"
 msgstr ""
 
-#: Game.Levels.Logic
+#: Game.Levels.LogicImp
+msgid "By 'logic' here we mean the study of propositions. A proposition is a\n"
+"true/false statement. For example 2+2=4, 2+2=5, and the statement\n"
+"of the Riemann Hypothesis are all propositions.\n"
+"\n"
+"In the logic part of the Introduction to Lean,\n"
+"we learn about how to do basic mathematics with propositions. Basic mathematics\n"
+"with numbers involves learning about how functions like `+`, `-`, `*` and `/`\n"
+"interact with numbers like 0, 1, 2, .... Basic mathematics with propositions involves learning about how\n"
+"functions like `→`, `¬`, `∧`, `↔` and `∨` interact with\n"
+"propositions like `true` and `false`.\n"
+"\n"
+"In Lean we can prove mathematical theorems using *tactics* such as `intro`\n"
+"and `apply`. In this section, we will\n"
+"learn how to use about ten of Lean's basic tactics.\n"
+"\n"
+"## Lean's notation for logic.\n"
+"\n"
+"In Lean, `P : Prop` means `P` is a proposition, and `P → Q` is the\n"
+"proposition that `P` implies `Q`. Note that Lean uses a single arrow `→`\n"
+"rather than the double arrow `⇒`.\n"
+"\n"
+"The notation `h : P` means any of the following equivalent things:\n"
+"\n"
+"* `h` is a proof of `P`\n"
+"* `h` is the assumption that `P` is true\n"
+"* `P` is true, and this fact is called `h`\n"
+"\n"
+"Here `h` is just a variable name. We will often call proofs of `P` things like `hP`\n"
+"but you can call them pretty much anything.\n"
+"\n"
+"WARNING: do not confuse `P : Prop` with `hP : P`. The former just means\n"
+"that `P` is a true-false statement; the latter means that it is a true\n"
+"statement.\n"
+"\n"
+"# Tactics you will Need:\n"
+"\n"
+"To do logic problems in Lean you need to know some basic tactics.\n"
+"Technically, when applying several tactics, you should put a comma\n"
+"after each one. You don't need to here."
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L01_imp_I
+msgid "Advanced → I: More Props"
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L01_imp_I
+msgid "Now they get a little harder. Good luck."
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L01_imp_I
+msgid "Adding More Props: `(P → R) → (S → Q) → (R → T) → (Q → R) → S → T`"
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L01_imp_I
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L02_imp_II
+msgid "Peeling Layers I"
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L02_imp_II
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L02_imp_II
+msgid "Peeling back the layers: `(P → Q) → ((P → Q) → P) → Q `"
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L02_imp_II
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L03_imp_III
+msgid "Peeling Layers II"
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L03_imp_III
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L03_imp_III
+msgid "Peeling back the layers: `(((P → Q) → R) → ((Q → R) → P) → ((R → P) → Q) → P `"
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L03_imp_III
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L04_imp_IV
+msgid "Peeling Layers III"
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L04_imp_IV
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L04_imp_IV
+msgid "Peeling back the layers: `((Q → P) → P) → (Q → R) → (R → P) → P`"
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L04_imp_IV
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L05_imp_V
+msgid "Peeling Layers IV"
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L05_imp_V
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L05_imp_V
+msgid "Peeling back the layers: `(((P → Q) → Q) → Q) → (P → Q)`"
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L05_imp_V
+msgid ""
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L06_imp_VI
+msgid "Layers and Layers..."
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L06_imp_VI
+msgid "This is dreadful."
+msgstr ""
+
+#: Game.Levels.Logic.AdvImplication.L06_imp_VI
+msgid ""
+msgstr ""
+
+#: Game.Levels.AdvLogicImp
+msgid "Logic Ia: Advanced →"
+msgstr ""
+
+#: Game.Levels.AdvLogicImp
 msgid "By 'logic' here we mean the study of propositions. A proposition is a\n"
 "true/false statement. For example 2+2=4, 2+2=5, and the statement\n"
 "of the Riemann Hypothesis are all propositions.\n"

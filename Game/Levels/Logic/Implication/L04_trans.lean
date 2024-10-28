@@ -1,6 +1,6 @@
 import Game.Metadata
 
-World "Logic"
+World "LogicImp"
 Level 4
 Title "Transitivity of →"
 
@@ -9,9 +9,9 @@ OnlyTactic
   exact
   apply
 
-TheoremTab "→ (Logic)"
+TheoremTab "→"
 
-namespace logic
+namespace GameLogic
 
 Introduction
 "
@@ -19,9 +19,8 @@ Introduction
 so is `P → R`.
 How could this be proven?
 "
-
-/-- If we assume `P → Q` and `Q → R`, `∴ P → R` must be true -/
-TheoremDoc logic.transitivity as "transitive" in "→ (Logic)"
+/-- Transitivity of →: `(P → Q) → (Q → R) → P → R` -/
+TheoremDoc GameLogic.transitivity as "transitivity" in "→"
 
 /-- Transitivity of →: `(P → Q) → (Q → R) → P → R` -/
 Statement transitivity(P Q R: Prop) : (P → Q) → (Q → R) → (P → R) := by

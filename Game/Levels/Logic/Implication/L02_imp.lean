@@ -1,6 +1,6 @@
 import Game.Metadata
 
-World "Logic"
+World "LogicImp"
 Level 2
 Title "How Implication Works"
 
@@ -9,9 +9,9 @@ OnlyTactic
   exact
   apply
 
-TheoremTab "→ (Logic)"
+TheoremTab "→"
 
-namespace logic
+namespace GameLogic
 
 Introduction
 "
@@ -21,9 +21,6 @@ about it, this means that to deduce `R` you will need to prove both `P`
 and `Q`. In general to prove `P1 → P2 → P3 → ... Pn` you can assume
 `P1`, `P2`,...,`P(n-1)` and then you have to prove `Pn`.
 "
-
-/-- For any proposition P, P → P -/
-TheoremDoc logic.identity as "identity" in "→ (Logic)"
 
 /-- P → (Q → P) -/
 Statement (P Q: Prop) : P → Q → P := by

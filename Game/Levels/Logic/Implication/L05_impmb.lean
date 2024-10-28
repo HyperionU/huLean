@@ -1,6 +1,6 @@
 import Game.Metadata
 
-World "Logic"
+World "LogicImp"
 Level 5
 Title "→ Mini Boss"
 

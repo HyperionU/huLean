@@ -1,6 +1,6 @@
 import Game.Metadata
 
-World "Logic"
+World "LogicImp"
 Level 3
 Title "Modus Ponens"
 
@@ -9,9 +9,9 @@ OnlyTactic
   exact
   apply
 
-TheoremTab "→ (Logic)"
+TheoremTab "→"
 
-namespace logic
+namespace GameLogic
 
 Introduction
 "
@@ -20,11 +20,8 @@ This is called Modus Ponens by logicians.
 Let's try proving this!
 "
 
-/-- If `P` and `P → Q` are true, we can deduce that `Q` is true. -/
-TheoremDoc logic.modus_ponens as "modus_ponens" in "→ (Logic)"
-
 /-- Modus Ponens: P → (P → Q) → Q -/
-Statement modus_ponens(P Q: Prop) : P → (P → Q) → Q := by
+Statement (P Q: Prop) : P → (P → Q) → Q := by
   Hint "How could we unravel this?"
   intro hP
   intro hPQ

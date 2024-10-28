@@ -1,6 +1,6 @@
 import Game.Metadata
 
-World "Logic"
+World "LogicImp"
 Level 1
 Title "The Identity"
 
@@ -11,7 +11,7 @@ OnlyTactic
 
 TheoremTab "→ (Logic)"
 
-namespace logic
+namespace GameLogic
 
 Introduction
 "
@@ -39,11 +39,8 @@ following tactics:
 * `apply`
 "
 
-/-- For any proposition P, P → P -/
-TheoremDoc logic.identity as "identity" in "→ (Logic)"
-
 /-- Every proposition implies itself. -/
-Statement identity (P : Prop) : P → P := by
+Statement (P : Prop) : P → P := by
   intro h
   exact h
 Conclusion

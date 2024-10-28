@@ -1,11 +1,12 @@
-import Game.Levels.Logic.L01_impid
-import Game.Levels.Logic.L02_imp
-import Game.Levels.Logic.L03_mp
-import Game.Levels.Logic.L04_trans
-import Game.Levels.Logic.L05_impmb
+import Game.Levels.Logic.AdvImplication.L01_imp_I
+import Game.Levels.Logic.AdvImplication.L02_imp_II
+import Game.Levels.Logic.AdvImplication.L03_imp_III
+import Game.Levels.Logic.AdvImplication.L04_imp_IV
+import Game.Levels.Logic.AdvImplication.L05_imp_V
+import Game.Levels.Logic.AdvImplication.L06_imp_VI
 
-World "Logic"
-Title "Logic World"
+World "AdvLogicImp"
+Title "Logic Ia: Advanced →"
 
 Introduction
 "
